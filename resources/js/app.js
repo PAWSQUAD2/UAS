@@ -4,11 +4,37 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
 
-require('./bootstrap');
 
 window.Vue = require('vue');
 
+require('./bootstrap');
+import App from '../views/pages/App.vue'
+import Home from '../views/pages/Home.vue'
+import Berita from '../views/pages/Berita.vue'
+import NotFound from '../views/pages/404.vue'
+const router = new VueRouter({
+    mode: 'history',
+    routes: [{
+            path: '/',
+            name: 'home',
+            component: Home
+        },
+        {
+            path: '/berita',
+            name: 'berita',
+            component: Berita,
+        },
+        {
+            path: '/*',
+            name: '404',
+            component: NotFound,
+        },
+    ],
+});
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -29,5 +55,10 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    components: { App },
+    router,
+});
+new Vue({
+    el: '#app1' 
 });
