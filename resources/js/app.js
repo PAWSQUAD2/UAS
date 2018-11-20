@@ -16,7 +16,7 @@ window.Vue = require('vue');
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
-
+Vue.component('ksr-footer', require('./components/Footer.vue'));
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 // const files = require.context('./', true, /\.vue$/i)

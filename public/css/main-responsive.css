@@ -606,3 +606,8 @@ input:valid + span:before {
 .color-hr{
     background-color: #00283677;
 }
+
+.no-v-pad{
+    padding-right: 0;
+    padding-left:  0;
+}
