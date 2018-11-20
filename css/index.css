@@ -1,0 +1,281 @@
+.card-view{
+    margin-top: 64px;
+    border: solid 2px #cccccc; 
+    border-width: 2px;
+    border-radius: 10px;
+    padding: 20px;
+    
+}
+
+.heder-card-view{
+    position: relative;
+    top: -30px;
+    text-align: center;
+    font-weight: 300;
+}
+
+.content-card-view{
+    text-align: center;
+    font-weight: 300;
+}
+.icon-card-view{
+    position: relative;
+    height: 128px;
+    width: 128px;
+    background-image: url("../images/gear.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    background-size: 90px 90px;
+    background-color: white;
+    border: 1px solid #cccccc;
+    margin: 0 auto;
+    top: -80px;
+    border-radius: 50%;
+}
+.icon2-card-view{
+    position: relative;
+    height: 128px;
+    width: 128px;
+    background-image: url("../images/lightning.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    background-size: 80px 80px;
+    background-color: white;
+    border: 1px solid #cccccc;
+    margin: 0 auto;
+    top: -80px;
+    border-radius: 50%;
+}
+.icon3-card-view{
+    position: relative;
+    height: 128px;
+    width: 128px;
+    background-image: url("../images/procie.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    background-size: 80px 80px;
+    background-color: white;
+    border: 1px solid #cccccc;
+    margin: 0 auto;
+    top: -80px;
+    border-radius: 50%;
+}
+.al-padding-32{
+    padding-top: 32px
+    !important;
+    padding-bottom: 32px
+    !important
+}
+.al-padding-bootom{
+    border-bottom: 2px
+    solid
+    #ccc
+    !important
+}
+.al-border-ligth-grey{
+    border-color: #f1f1f1
+    !important
+}
+.al-padding-16{
+    padding-top: 16px
+    !important;
+    padding-bottom: 16px
+    !important
+}
+.al-row-padding{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 10px;
+}
+.al-col{
+    padding: 0 10px;
+    min-width :300px;
+    margin: 0 auto;
+}
+.al{
+    width: 24.9999%
+}
+.al-m{
+    width: 33.33333%
+}
+.al-margin-bottom{
+    margin-bottom: 16px 
+    !important
+}
+.al-display-container{
+    position: relative;
+    width: 100%;
+    height: 400px;
+    padding: 10px;
+    border: 1px rgba(128, 128, 128, 0.472) solid;
+    overflow: hidden;
+}
+.al-display-topleft{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.al-caption{
+    max-height: 120px;
+    word-wrap: break-word;
+    text-align: justify;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: gainsboro;
+}
+.my-auto {
+    min-width: 400px;
+    margin: 0 auto;
+}
+@media (max-width: 1200px) {
+    .my-auto {
+        min-width: 100% !important;
+        margin: 0;
+    }
+    .card-view{
+        width: 100%;
+    }
+}
+
+.al-title {
+    display: block;
+    color: antiquewhite;
+    word-wrap: break-word;
+    font-size: 20px;
+    text-align: justify;
+    text-overflow: ellipsis;
+    margin: 10px 0;
+}
+.al-black{
+    color: #ffffff
+    !important;
+    background-color: #000000
+    !important;
+}
+.al-padding{
+    padding: 8px 16px
+    !important
+}
+.al-panel{
+    padding: 0.01em 16px
+}
+.al-content{
+    max-width:980px;
+    margin:auto
+}
+
+.container1 {
+    height:100px;
+    width:100%;
+}
+.coulum1 {
+    height:100px;
+    width:20%;
+    background-color:grey;
+    float:left;
+}
+.column2 {
+    height:100px;
+    width:80%;
+    background-color:red;
+    float:right;     
+}
+.al-col1{
+    float: left;
+    width: 100%
+}
+.m6{
+    widows: 49.99999%
+}
+.al-padding-large{
+    padding: 12px 24px
+    !important
+}
+.al-center{
+    display: inline-block;
+    width: auto;
+}
+
+.al-content-image{
+    text-align: justify;
+    
+}
+.al-content-text{
+    float:right;
+}
+.al-row-content{
+    content: "";
+    display: table;
+    clear: both;
+}
+.al-padding-64{
+    padding-top: 64px
+    !important;
+    padding-bottom: 64px
+    !important;
+}
+.al-col-2{
+    float: left;
+    width: 100%
+}
+.al-hide-small{
+    display: none
+    !important
+}
+.al-round{
+    border-radius: 4px
+}
+.al-image{
+    max-width: 100%;
+    height: auto;
+}
+
+
+.ald-content{
+    max-width:980px;margin:auto
+}
+.ald-rest{
+    overflow:hidden
+}
+.ald-col{
+    padding:0 8px
+}
+.ald-padding-64{
+    padding-top:64px!important;
+    padding-bottom:64px!important
+}
+.ald-col{
+    float:left;width:100%
+}
+.ald-col.m6,.ald-half{
+    width:49.99999%
+}
+.ald-padding-large{
+    padding:12px 24px!important
+}
+.ald-hide-small{
+    display:none!important
+}
+.ald-round-small{
+    border-radius:2px
+}
+.ald-round{
+    border-radius:4px
+}
+.ald-image{
+    max-width:100%;height:auto
+}img{
+    vertical-align:middle}a{color:inherit
+}
+.ald-opacity-min{
+    opacity:0.75
+}
+.ald-centered tr th,.ald-centered tr td{
+    text-align:center
+}
+ald-large{
+    font-size:18px!important
+}
