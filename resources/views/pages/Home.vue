@@ -34,22 +34,22 @@
         <div class="p-x-10" style="background-color: white;padding-top: 40px;padding-bottom: 40px">
             <div class="container-fluid pad25B row">
                 <div class="col-md-4 pad25B my-auto">
-                    <div class="card-view">
+                    <div class="card-view" data-aos="fade-in">
                         <div class="icon-card-view"></div>
                         <h3 class="heder-card-view">Mechanic</h3>
                         <p class="content-card-view">Mechanic merupakan bentuk badan dari robot dan mekanisme kerjanya, sehingga kurikulum yang kami ajarkan tentang bagaimana membuat bentuk dan proses kerjanya. </p>
                     </div>
                 </div>
                 <div class="col-md-4 pad25B my-auto">
-                    <div class="card-view">
-                        <div class="icon2-card-view"></div>
+                    <div class="card-view" data-aos="fade-in">
+                        <div class="icon2-card-view" ></div>
                             <h3 class="heder-card-view">Electronic</h3>
                             <p class="content-card-view">Electronic merupakan isi dari robot, mulai dari sensor hingga penggerak, dari baterai hingga tampilan display yang semuanya akan diatur oleh komputer.  </p>
                     </div>
                 </div>
 
                 <div class="col-md-4 pad25B my-auto">
-                    <div class="card-view">
+                    <div class="card-view" data-aos="fade-in">
                         <div class="icon3-card-view"></div>
                             <h3 class="heder-card-view">COMPUTER</h3>
                             <p class="content-card-view">Seluruh proses dalam robot diatur dalam computer, sehingga untuk dapat membuat robot bergerak sesuai kebutuhan akan diperlukan kemampuan pemrograman.  </p>
@@ -60,11 +60,11 @@
 
         <div class="body" style="max-height: 1200px;  background-color: white;overflow: hidden;">
             <div class="row ald-padding-64 pad-b-40px" >
-                <div class="ald-col m6 ald-padding-large">
+                <div class="ald-col m6 ald-padding-large" data-aos="fade-right">
                     <img src="images/mechatron.jpg" class="ald-round ald-image ald-opacity-min" alt="Mechatron" width="600" height="750">
                 </div>
 
-                <div class="ald-col m6 ald-padding-large">
+                <div class="ald-col m6 ald-padding-large" data-aos="flip-left">
                     <h1 class="ald-center">Mutant: Mechatron - Rise of the Robots Roleplaying</h1><br>
                     <h5 class="ald-center">--Fria Ligan--</h5>
                     <p class="ald-large">The machines awake in this postapocalyptic RPG in the vein of Asimov and Westworld, set in the universe of acclaimed Mutant: Year Zero.</p>
@@ -114,3 +114,9 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    
+}
+</script>

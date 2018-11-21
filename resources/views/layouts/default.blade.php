@@ -21,6 +21,6 @@
     <script src="js/popper.min.js"></script> 
     
     <script src="js/bootstrap-4.0.0.js"></script>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
 </html>
