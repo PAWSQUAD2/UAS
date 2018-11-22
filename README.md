@@ -4,7 +4,6 @@ installation steps:
 1. clone this git
 2. npm install
 3. composer install
-4. npm install vue-router
 
 serving steps:
 1. npm run watch
