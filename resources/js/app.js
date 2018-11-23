@@ -6,27 +6,57 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
-
-
+import axios from 'axios';
+import VueAxios from 'vue-axios';
+Vue.use(VueAxios, axios);
+axios.defaults.baseURL = 'http://localhost:8000/api';
 window.Vue = require('vue');
 
 require('./bootstrap');
 import App from '../views/pages/App.vue'
 import Home from '../views/pages/Home.vue'
 import Berita from '../views/pages/Berita.vue'
+import Member from '../views/pages/Member.vue'
 import NotFound from '../views/pages/404.vue'
+import MemberView from '../views/pages/MemberView.vue'
+
 const router = new VueRouter({
     mode: 'history',
+     base: window.location.pathName,
     routes: [{
             path: '/',
             name: 'home',
-            component: Home
+            component: Home,
+            meta: {
+                auth: undefined
+
+            }
         },
         {
             path: '/berita',
             name: 'berita',
             component: Berita,
         },
+        {
+            path: '/member',
+            name: 'member',
+            component : Member,
+            meta:{
+                auth:false,
+                forbiddenRedirect:'/',
+                notFoundRedirect:'/',
+            },
+            
+        },
+        {
+            path: '/memberView',
+            name: 'member_view',
+            component: MemberView,
+            meta:{
+                auth:true
+            }
+        }
+        ,
         {
             path: '/*',
             name: '404',
@@ -42,6 +72,7 @@ const router = new VueRouter({
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 Vue.component('ksr-footer', require('./components/Footer.vue'));
+Vue.component('nav-header', require('./components/Header.vue'));
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 // const files = require.context('./', true, /\.vue$/i)
@@ -53,8 +84,24 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.router = router;
+
+Vue.use(require('@websanova/vue-auth'), {
+
+    auth: require('@websanova/vue-auth/drivers/auth/bearer.js'),
+
+    http: require('@websanova/vue-auth/drivers/http/axios.1.x.js'),
+
+    router: require('@websanova/vue-auth/drivers/router/vue-router.2.x.js'),
+    authRedirect: {
+        path: '/member'
+    },
+    rolesVar: 'role'
+});
 const app = new Vue({
     el: '#app',
-    components: { App },
+    components: {
+        App
+    },
     router,
 });
