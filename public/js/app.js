@@ -25025,7 +25025,7 @@ module.exports = (function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(16);
-module.exports = __webpack_require__(70);
+module.exports = __webpack_require__(75);
 
 
 /***/ }),
@@ -25051,7 +25051,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__views_pages_Member_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__views_pages_Member_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__views_pages_404_vue__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__views_pages_404_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__views_pages_404_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__views_pages_MemberView_vue__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__views_pages_MemberView_vue__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__views_pages_MemberView_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__views_pages_MemberView_vue__);
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -25120,9 +25120,9 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('ksr-footer', __webpack_require__(57));
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('nav-header', __webpack_require__(75));
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('example-component', __webpack_require__(60));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('ksr-footer', __webpack_require__(60));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('nav-header', __webpack_require__(63));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('example-component', __webpack_require__(65));
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
@@ -25135,13 +25135,13 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('example-component', __web
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.router = router;
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__webpack_require__(63), {
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__webpack_require__(68), {
 
-    auth: __webpack_require__(67),
+    auth: __webpack_require__(72),
 
-    http: __webpack_require__(68),
+    http: __webpack_require__(73),
 
-    router: __webpack_require__(69),
+    router: __webpack_require__(74),
     authRedirect: {
         path: '/member'
     },
@@ -51997,6 +51997,329 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
+Component.options.__file = "resources/views/pages/MemberView.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4fd37d63", Component.options)
+  } else {
+    hotAPI.reload("data-v-4fd37d63", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var axios = __webpack_require__(3);
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            newUsers: []
+        };
+    },
+    methods: function methods() {},
+    created: function created() {
+        var _this = this;
+
+        axios.get('/newMember', {
+            params: {
+                token: this.$auth.token()
+            }
+        }).then(function (res) {
+            _this.newUsers = res.data.data;
+            console.log(res.data.data);
+        });
+    }
+});
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container-fluid no-v-pad" }, [
+    _c("div", { staticClass: "row p-x-10 pad-t-60px" }, [
+      _c("div", { staticClass: "container profile-container mar-t-20px" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-xl-12 no-padding" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "profile-header-container p-x-5 pad-t-60px editor-container"
+              },
+              [
+                _vm._m(1),
+                _vm._v(" "),
+                _c("h3", { staticClass: "color-darkTheme" }, [
+                  _vm._v(">> Calon-Calon Anggota KSR")
+                ]),
+                _vm._v(" "),
+                _c("hr"),
+                _vm._v(" "),
+                _c("iframe", {
+                  staticStyle: { display: "none" },
+                  attrs: {
+                    name: "hidden-frame",
+                    width: "0",
+                    height: "0",
+                    border: "0"
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "table",
+                  [
+                    _vm._m(2),
+                    _vm._v(" "),
+                    !_vm.$auth.check("admin")
+                      ? _c("tr", [
+                          _c("td", { attrs: { colspan: "7" } }, [
+                            _vm._v(
+                              "Anda tidak punya hak untuk mengakses data ini."
+                            )
+                          ])
+                        ])
+                      : _vm.newUsers.length == 0
+                      ? _c("tr", [
+                          _c("td", { attrs: { colspan: "7" } }, [
+                            _vm._v("Tidak Ada Pendaftar.")
+                          ])
+                        ])
+                      : _vm._l(_vm.newUsers, function(data) {
+                          return _c("tr", { key: data.id }, [
+                            _c("td", [_vm._v(_vm._s(data.id))]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c(
+                                "a",
+                                {
+                                  attrs: {
+                                    href: "profile.php?uid='.$data['token'].'"
+                                  }
+                                },
+                                [_vm._v(_vm._s(data.name))]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v("FTI")]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v(_vm._s(data.prody))]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v(_vm._s(data.npm))]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v(_vm._s(data.email))]),
+                            _vm._v(" "),
+                            _vm._m(3, true)
+                          ])
+                        })
+                  ],
+                  2
+                )
+              ]
+            )
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "absolute-ppbg", staticStyle: { overflow: "hidden" } },
+      [
+        _c("img", {
+          staticClass: "sampul",
+          attrs: { src: "images/sampul.jpg", alt: "pp" }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "emblem" }, [
+      _c("div", { staticClass: "logo" }, [
+        _c("img", { attrs: { src: "images/emblen.jpg" } })
+      ]),
+      _vm._v(" "),
+      _c("h3", { staticClass: "caption color-darkTheme" }, [
+        _vm._v("Kelompok Studi Robotik")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", [_c("strong", [_vm._v("No.")])]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Nama")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Fakultas")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Program Studi")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("NIM")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Email")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Accept / Reject")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c("div", { staticClass: "centralize" }, [
+        _c(
+          "form",
+          {
+            attrs: {
+              action: "pendaftar_action.php",
+              method: "post",
+              target: "hidden-frame"
+            }
+          },
+          [
+            _c("input", {
+              attrs: {
+                type: "hidden",
+                name: "Userid",
+                value: "'.$data['token'].'"
+              }
+            })
+          ]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4fd37d63", module.exports)
+  }
+}
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(61)
+/* template */
+var __vue_template__ = __webpack_require__(62)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
 Component.options.__file = "resources/js/components/Footer.vue"
 
 /* hot reload */
@@ -52019,7 +52342,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 58 */
+/* 61 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52085,7 +52408,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 59 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -52158,15 +52481,371 @@ if (false) {
 }
 
 /***/ }),
-/* 60 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(61)
+var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(62)
+var __vue_template__ = __webpack_require__(64)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/Header.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1f42fb90", Component.options)
+  } else {
+    hotAPI.reload("data-v-1f42fb90", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "nav",
+    {
+      staticClass:
+        "navbar mNav fixed-top navbar-expand-lg navbar-light bg-light"
+    },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("a", { staticClass: "navbar-brand", attrs: { href: "index.php" } }, [
+        _vm._v("KSR")
+      ]),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "collapse navbar-collapse",
+          attrs: { id: "navbarSupportedContent1" }
+        },
+        [
+          _c("ul", { staticClass: "navbar-nav mr-auto" }, [
+            _c(
+              "li",
+              { staticClass: "nav-item active" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "nav-link no-outline fa fa-home",
+                    attrs: { to: { name: "home" } }
+                  },
+                  [_vm._v("Home")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              { staticClass: "nav-item" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "nav-link no-outline fa fa-users",
+                    attrs: {
+                      to: !_vm.$auth.check()
+                        ? { name: "member" }
+                        : { name: "member_view" }
+                    }
+                  },
+                  [_vm._v("Member")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              { staticClass: "nav-item" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "nav-link no-outline fa fa-newspaper",
+                    attrs: { to: { name: "berita" } }
+                  },
+                  [_vm._v("Berita")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _vm._m(2)
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "pull-right" },
+            [
+              _vm.$auth.check()
+                ? _c(
+                    "li",
+                    {
+                      staticClass: "nav-item dropdown",
+                      staticStyle: { margin: "0", padding: "0" }
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "nav-link dropdown-toggle",
+                          staticStyle: { margin: "0", padding: "0" },
+                          attrs: {
+                            href: "#",
+                            id: "navbarDropdown1",
+                            role: "button",
+                            "data-toggle": "dropdown",
+                            "aria-haspopup": "true",
+                            "aria-expanded": "false"
+                          }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "navbar-profile navbar-nav color-lightTheme mr-auto",
+                              staticStyle: { display: "inline" }
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "avatar",
+                                attrs: {
+                                  src:
+                                    _vm.$auth.user().photoUrl == null
+                                      ? "images/pp.png"
+                                      : _vm.$auth.user().photoUrl,
+                                  alt: "avatar"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "name" }, [
+                                _vm._v(_vm._s(_vm.$auth.user().name))
+                              ])
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "dropdown-menu",
+                          attrs: { "aria-labelledby": "navbarDropdown1" }
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "dropdown-item color-darkTheme fa fa-user",
+                              attrs: { href: "profile.php" }
+                            },
+                            [_vm._v("  Beranda")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "dropdown-item color-darkTheme fa fa-wrench",
+                              attrs: { href: "profile_edit.php" }
+                            },
+                            [_vm._v("  Edit Profile")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "dropdown-item color-darkTheme fa fa-play-circle",
+                              attrs: { href: "profile_edit.php" }
+                            },
+                            [_vm._v("  IoT Demo")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "dropdown-divider" }),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "dropdown-item color-darkTheme fa fa-newspaper",
+                              attrs: { href: "tambah-berita.php" }
+                            },
+                            [_vm._v("  Olah Berita")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "dropdown-divider" }),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "dropdown-item color-darkTheme fa fa-lock",
+                              attrs: { href: "ksr-admin.php" }
+                            },
+                            [_vm._v("  Panel Admin")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "dropdown-divider" }),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "dropdown-item color-darkTheme fa fa-power-off",
+                              staticStyle: { cursor: "pointer" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  _vm.$auth.logout()
+                                }
+                              }
+                            },
+                            [_vm._v("  Keluar")]
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _c(
+                    "router-link",
+                    {
+                      staticStyle: { outline: "0", "text-decoration": "none" },
+                      attrs: { to: { name: "member" } }
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "navbar-profile navbar-nav color-lightTheme mr-auto"
+                        },
+                        [
+                          _c("span", { staticClass: "name" }, [
+                            _vm._v("Masuk/Daftar")
+                          ])
+                        ]
+                      )
+                    ]
+                  )
+            ],
+            1
+          )
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "logo" }, [
+      _c("img", { attrs: { src: "images/emblen.jpg" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navbarSupportedContent1",
+          "aria-controls": "navbarSupportedContent1",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation"
+        }
+      },
+      [
+        _c("span", { staticClass: "navbar-toggler-icon" }, [
+          _c("em", [_vm._v(" ")])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c(
+        "a",
+        {
+          staticClass: "nav-link no-outline color-darkOrange fa fa-user-plus",
+          attrs: { href: "pendaftar.php" }
+        },
+        [_vm._v(" Open Registration")]
+      )
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1f42fb90", module.exports)
+  }
+}
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(66)
+/* template */
+var __vue_template__ = __webpack_require__(67)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -52205,7 +52884,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 61 */
+/* 66 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52234,7 +52913,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 62 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -52277,10 +52956,10 @@ if (false) {
 }
 
 /***/ }),
-/* 63 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Auth = __webpack_require__(64)();
+var Auth = __webpack_require__(69)();
 
 module.exports = (function () {
 
@@ -52321,11 +53000,11 @@ module.exports = (function () {
 })();
 
 /***/ }),
-/* 64 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __utils  = __webpack_require__(65),
-    __token  = __webpack_require__(66),
+var __utils  = __webpack_require__(70),
+    __token  = __webpack_require__(71),
     __cookie = __webpack_require__(14)
 
 module.exports = function () {
@@ -53035,7 +53714,7 @@ module.exports = function () {
 
 
 /***/ }),
-/* 65 */
+/* 70 */
 /***/ (function(module, exports) {
 
 module.exports = (function (){
@@ -53117,7 +53796,7 @@ module.exports = (function (){
 
 
 /***/ }),
-/* 66 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __cookie = __webpack_require__(14);
@@ -53197,7 +53876,7 @@ module.exports = (function () {
 })();
 
 /***/ }),
-/* 67 */
+/* 72 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -53219,7 +53898,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 68 */
+/* 73 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -53285,7 +53964,7 @@ module.exports = {
 
 
 /***/ }),
-/* 69 */
+/* 74 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -53353,693 +54032,10 @@ module.exports = {
 };
 
 /***/ }),
-/* 70 */
+/* 75 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 71 */,
-/* 72 */,
-/* 73 */,
-/* 74 */,
-/* 75 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = __webpack_require__(76)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/js/components/Header.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1f42fb90", Component.options)
-  } else {
-    hotAPI.reload("data-v-1f42fb90", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 76 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "nav",
-    {
-      staticClass:
-        "navbar mNav fixed-top navbar-expand-lg navbar-light bg-light"
-    },
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("a", { staticClass: "navbar-brand", attrs: { href: "index.php" } }, [
-        _vm._v("KSR")
-      ]),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "collapse navbar-collapse",
-          attrs: { id: "navbarSupportedContent1" }
-        },
-        [
-          _c("ul", { staticClass: "navbar-nav mr-auto" }, [
-            _c(
-              "li",
-              { staticClass: "nav-item active" },
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "nav-link no-outline fa fa-home",
-                    attrs: { to: { name: "home" } }
-                  },
-                  [_vm._v("Home")]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "nav-link no-outline fa fa-users",
-                    attrs: {
-                      to: !_vm.$auth.check()
-                        ? { name: "member" }
-                        : { name: "member_view" }
-                    }
-                  },
-                  [_vm._v("Member")]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "nav-link no-outline fa fa-newspaper",
-                    attrs: { to: { name: "berita" } }
-                  },
-                  [_vm._v("Berita")]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _vm._m(2)
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "pull-right" },
-            [
-              _vm.$auth.check()
-                ? _c(
-                    "li",
-                    {
-                      staticClass: "nav-item dropdown",
-                      staticStyle: { margin: "0", padding: "0" }
-                    },
-                    [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "nav-link dropdown-toggle",
-                          staticStyle: { margin: "0", padding: "0" },
-                          attrs: {
-                            href: "#",
-                            id: "navbarDropdown1",
-                            role: "button",
-                            "data-toggle": "dropdown",
-                            "aria-haspopup": "true",
-                            "aria-expanded": "false"
-                          }
-                        },
-                        [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "navbar-profile navbar-nav color-lightTheme mr-auto",
-                              staticStyle: { display: "inline" }
-                            },
-                            [
-                              _c("img", {
-                                staticClass: "avatar",
-                                attrs: {
-                                  src:
-                                    _vm.$auth.user().photoUrl == null
-                                      ? "images/pp.png"
-                                      : _vm.$auth.user().photoUrl,
-                                  alt: "avatar"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("span", { staticClass: "name" }, [
-                                _vm._v(_vm._s(_vm.$auth.user().name))
-                              ])
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "dropdown-menu",
-                          attrs: { "aria-labelledby": "navbarDropdown1" }
-                        },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass:
-                                "dropdown-item color-darkTheme fa fa-user",
-                              attrs: { href: "profile.php" }
-                            },
-                            [_vm._v("  Beranda")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass:
-                                "dropdown-item color-darkTheme fa fa-wrench",
-                              attrs: { href: "profile_edit.php" }
-                            },
-                            [_vm._v("  Edit Profile")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass:
-                                "dropdown-item color-darkTheme fa fa-play-circle",
-                              attrs: { href: "profile_edit.php" }
-                            },
-                            [_vm._v("  IoT Demo")]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "dropdown-divider" }),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass:
-                                "dropdown-item color-darkTheme fa fa-newspaper",
-                              attrs: { href: "tambah-berita.php" }
-                            },
-                            [_vm._v("  Olah Berita")]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "dropdown-divider" }),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass:
-                                "dropdown-item color-darkTheme fa fa-lock",
-                              attrs: { href: "ksr-admin.php" }
-                            },
-                            [_vm._v("  Panel Admin")]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "dropdown-divider" }),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass:
-                                "dropdown-item color-darkTheme fa fa-power-off",
-                              staticStyle: { cursor: "pointer" },
-                              on: {
-                                click: function($event) {
-                                  $event.preventDefault()
-                                  _vm.$auth.logout()
-                                }
-                              }
-                            },
-                            [_vm._v("  Keluar")]
-                          )
-                        ]
-                      )
-                    ]
-                  )
-                : _c(
-                    "router-link",
-                    {
-                      staticStyle: { outline: "0", "text-decoration": "none" },
-                      attrs: { to: { name: "member" } }
-                    },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "navbar-profile navbar-nav color-lightTheme mr-auto"
-                        },
-                        [
-                          _c("span", { staticClass: "name" }, [
-                            _vm._v("Masuk/Daftar")
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-            ],
-            1
-          )
-        ]
-      )
-    ]
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "logo" }, [
-      _c("img", { attrs: { src: "images/emblen.jpg" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "navbar-toggler",
-        attrs: {
-          type: "button",
-          "data-toggle": "collapse",
-          "data-target": "#navbarSupportedContent1",
-          "aria-controls": "navbarSupportedContent1",
-          "aria-expanded": "false",
-          "aria-label": "Toggle navigation"
-        }
-      },
-      [
-        _c("span", { staticClass: "navbar-toggler-icon" }, [
-          _c("em", [_vm._v(" ")])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c(
-        "a",
-        {
-          staticClass: "nav-link no-outline color-darkOrange fa fa-user-plus",
-          attrs: { href: "pendaftar.php" }
-        },
-        [_vm._v(" Open Registration")]
-      )
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1f42fb90", module.exports)
-  }
-}
-
-/***/ }),
-/* 77 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(79)
-/* template */
-var __vue_template__ = __webpack_require__(78)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/views/pages/MemberView.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4fd37d63", Component.options)
-  } else {
-    hotAPI.reload("data-v-4fd37d63", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 78 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container-fluid no-v-pad" }, [
-    _c("div", { staticClass: "row p-x-10 pad-t-60px" }, [
-      _c("div", { staticClass: "container profile-container mar-t-20px" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-xl-12 no-padding" }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "profile-header-container p-x-5 pad-t-60px editor-container"
-              },
-              [
-                _vm._m(1),
-                _vm._v(" "),
-                _c("h3", { staticClass: "color-darkTheme" }, [
-                  _vm._v(">> Calon-Calon Anggota KSR")
-                ]),
-                _vm._v(" "),
-                _c("hr"),
-                _vm._v(" "),
-                _c("iframe", {
-                  staticStyle: { display: "none" },
-                  attrs: {
-                    name: "hidden-frame",
-                    width: "0",
-                    height: "0",
-                    border: "0"
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "table",
-                  [
-                    _vm._m(2),
-                    _vm._v(" "),
-                    !_vm.$auth.check("admin")
-                      ? _c("tr", [
-                          _c("td", { attrs: { colspan: "7" } }, [
-                            _vm._v(
-                              "Anda tidak punya hak untuk mengakses data ini."
-                            )
-                          ])
-                        ])
-                      : _vm.newUsers.length == 0
-                      ? _c("tr", [
-                          _c("td", { attrs: { colspan: "7" } }, [
-                            _vm._v("Tidak Ada Pendaftar.")
-                          ])
-                        ])
-                      : _vm._l(_vm.newUsers, function(data) {
-                          return _c("tr", { key: data.id }, [
-                            _c("td", [_vm._v(_vm._s(data.id))]),
-                            _vm._v(" "),
-                            _c("td", [
-                              _c(
-                                "a",
-                                {
-                                  attrs: {
-                                    href: "profile.php?uid='.$data['token'].'"
-                                  }
-                                },
-                                [_vm._v(_vm._s(data.name))]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("td", [_vm._v("FTI")]),
-                            _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(data.prody))]),
-                            _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(data.npm))]),
-                            _vm._v(" "),
-                            _c("td", [_vm._v(_vm._s(data.email))]),
-                            _vm._v(" "),
-                            _vm._m(3, true)
-                          ])
-                        })
-                  ],
-                  2
-                )
-              ]
-            )
-          ])
-        ])
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "absolute-ppbg", staticStyle: { overflow: "hidden" } },
-      [
-        _c("img", {
-          staticClass: "sampul",
-          attrs: { src: "images/sampul.jpg", alt: "pp" }
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "emblem" }, [
-      _c("div", { staticClass: "logo" }, [
-        _c("img", { attrs: { src: "images/emblen.jpg" } })
-      ]),
-      _vm._v(" "),
-      _c("h3", { staticClass: "caption color-darkTheme" }, [
-        _vm._v("Kelompok Studi Robotik")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("th", [_c("strong", [_vm._v("No.")])]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Nama")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Fakultas")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Program Studi")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("NIM")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Email")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Accept / Reject")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("div", { staticClass: "centralize" }, [
-        _c(
-          "form",
-          {
-            attrs: {
-              action: "pendaftar_action.php",
-              method: "post",
-              target: "hidden-frame"
-            }
-          },
-          [
-            _c("input", {
-              attrs: {
-                type: "hidden",
-                name: "Userid",
-                value: "'.$data['token'].'"
-              }
-            })
-          ]
-        )
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-4fd37d63", module.exports)
-  }
-}
-
-/***/ }),
-/* 79 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-var axios = __webpack_require__(3);
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            newUsers: []
-        };
-    },
-    methods: function methods() {},
-    created: function created() {
-        var _this = this;
-
-        axios.get('/newMember', {
-            params: {
-                token: this.$auth.token()
-            }
-        }).then(function (res) {
-            _this.newUsers = res.data.data;
-            console.log(res.data.data);
-        });
-    }
-});
 
 /***/ })
 /******/ ]);
