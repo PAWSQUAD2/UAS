@@ -52356,7 +52356,7 @@ var content = __webpack_require__(61);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("77a29df0", content, false, {});
+var update = __webpack_require__(5)("c5ab5bee", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -52600,7 +52600,7 @@ var content = __webpack_require__(67);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("72987dbe", content, false, {});
+var update = __webpack_require__(5)("0b5de845", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -52624,7 +52624,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.test > div> div[data-v-6cb83155]{\r\n    color: black !important;\r\n    background-color: black !important;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.test > div> div[data-v-6cb83155]{\n    color: black !important;\n    background-color: black !important;\n}\n\n", ""]);
 
 // exports
 
@@ -55863,7 +55863,7 @@ var content = __webpack_require__(81);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("34e52fb7", content, false, {});
+var update = __webpack_require__(5)("2bb1266c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -56199,7 +56199,7 @@ var content = __webpack_require__(86);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(5)("64a6103a", content, false, {});
+var update = __webpack_require__(5)("20b7b7f2", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
