@@ -12,6 +12,7 @@ Vue.use(VueAxios, axios);
 axios.defaults.baseURL = 'http://localhost:8000/api';
 window.Vue = require('vue');
 
+
 require('./bootstrap');
 import App from '../views/pages/App.vue'
 import Home from '../views/pages/Home.vue'
@@ -19,7 +20,7 @@ import Berita from '../views/pages/Berita.vue'
 import Member from '../views/pages/Member.vue'
 import NotFound from '../views/pages/404.vue'
 import MemberView from '../views/pages/MemberView.vue'
-
+import Profile from '../views/pages/Profile.vue'
 const router = new VueRouter({
     mode: 'history',
      base: window.location.pathName,
@@ -55,8 +56,15 @@ const router = new VueRouter({
             meta:{
                 auth:true
             }
-        }
-        ,
+        },
+        {
+            path: '/profile',
+            name: 'profile',
+            component: Profile,
+            meta:{
+                auth:true
+            }
+        },
         {
             path: '/*',
             name: '404',
@@ -74,6 +82,8 @@ const router = new VueRouter({
 Vue.component('ksr-footer', require('./components/Footer.vue'));
 Vue.component('nav-header', require('./components/Header.vue'));
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('tabel-member-baru', require('./components/NewMemberTable'));
+Vue.component('tabel-member', require('./components/MemberTable'));
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))

@@ -611,3 +611,11 @@ input:valid + span:before {
     padding-right: 0;
     padding-left:  0;
 }
+
+.profile-header-container {
+    padding-bottom: 120px;
+}
+
+.profile-container {
+    margin-bottom: 60px;
+}

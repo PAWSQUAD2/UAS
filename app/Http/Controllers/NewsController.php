@@ -15,7 +15,9 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return News::all();
+        $newss = News::all();
+
+        return response()->json($newss,200);
     }
 
     /**
@@ -36,7 +38,15 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        return News::create($request->all());
+        $news = new News;
+        $news->author = $request->author;
+        $news->text = $request->text;
+        $success = $news->save();
+
+        if(!$success){
+            return response()->json('Error Saving',500);
+        }else
+        return response()->json('success',201);
     }
 
     /**
@@ -47,7 +57,13 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        return News::find($id);
+        $news = News::find($id);
+
+        if(is_null($news)){
+            return response()->json('Not Found',404);
+        }
+        else
+            return response()->json($news,200);
     }
 
     /**
@@ -70,10 +86,22 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $news = News::findOrFail($id);
-        $news->update($request->all());
+        $news = News::find($id);
 
-        return $news;
+        if(!is_null($request->author)){
+            $news->author = $request->author;
+        }
+        if(!is_null($request->text)){
+            $news->text = $request->text;
+        }
+
+        $success = $news->save();
+
+        if(!$success){
+            return response()->json('Error Updating',500);
+        }
+        else    
+            return response()->json('Success',200);
     }
 
     /**
@@ -84,6 +112,17 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $news = News::find($id);
+        
+        if(is_null($news)){
+            return response()->json('Not Found',404);
+        }
+        $success = $news->delete();
+
+        if(!$success){
+            return response()->json('Error Deleting',500);
+        }
+        else
+            return response()->json('Success',200);
     }
 }
