@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\News;
-
-class NewsController extends Controller
+use App\Comment;
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +13,9 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $newss = News::all();
+        $comments = Comment::all();
 
-        return response()->json($newss,200);
+        return response()->json($comments,200);
     }
 
     /**
@@ -38,12 +36,11 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        $news = new News;
-        $news->judul = $request->judul;
-        $news->isi = $request->isi;
-        $news->photoUrl = $request->photoUrl;
-        $news->kategori = $request->kategori;
-        $success = $news->save();
+        $comment = new Comment;
+        $comment->id_user = $request->id_user;
+        $comment->id_berita = $request->id_berita;
+        $comment->isi = $request->isi;
+        $success = $comment->save();
 
         if(!$success){
             return response()->json('Error Saving',500);
@@ -59,13 +56,13 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        $news = News::find($id);
+        $comment = Comment::find($id);
 
-        if(is_null($news)){
+        if(is_null($comment)){
             return response()->json('Not Found',404);
         }
         else
-            return response()->json($news,200);
+            return response()->json($comment,200);
     }
 
     /**
@@ -88,21 +85,18 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $news = News::find($id);
+        $comment = Comment::find($id);
 
-        if(!is_null($request->judul)){
-            $news->judul = $request->judul;
+        if(!is_null($request->id_user)){
+            $comment->id_user = $request->id_user;
+        }
+        if(!is_null($request->id_berita)){
+            $comment->id_berita = $request->id_berita;
         }
         if(!is_null($request->isi)){
-            $news->isi = $request->isi;
+            $comment->isi = $request->isi;
         }
-        if(!is_null($request->photoUrl)){
-            $news->photoUrl = $request->photoUrl;
-        }
-        if(!is_null($request->kategori)){
-            $news->kategori = $request->kategori;
-        }
-        $success = $news->save();
+        $success = $comment->save();
 
         if(!$success){
             return response()->json('Error Updating',500);
@@ -119,12 +113,12 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        $news = News::find($id);
+        $comment = Comment::find($id);
         
-        if(is_null($news)){
+        if(is_null($comment)){
             return response()->json('Not Found',404);
         }
-        $success = $news->delete();
+        $success = $comment->delete();
 
         if(!$success){
             return response()->json('Error Deleting',500);

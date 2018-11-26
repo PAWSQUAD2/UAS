@@ -38,3 +38,4 @@ Route::group(['middleware' => 'jwt.refresh'], function(){
 });
 
 Route::resource('news','NewsController',['except'=>['create','edit']]);
+Route::resource('comment','CommentController',['except'=>['create','edit']]);
