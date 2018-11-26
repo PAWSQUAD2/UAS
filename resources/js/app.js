@@ -10,6 +10,16 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 Vue.use(VueAxios, axios);
 axios.defaults.baseURL = 'http://localhost:8000/api';
+axios.interceptors.request.use(config => {
+    NProgress.start()
+    return config
+})
+
+// before a response is returned stop nprogress
+axios.interceptors.response.use(response => {
+    NProgress.done()
+    return response
+})
 window.Vue = require('vue');
 
 require('./bootstrap');
@@ -19,6 +29,14 @@ import Berita from '../views/pages/Berita.vue'
 import Member from '../views/pages/Member.vue'
 import NotFound from '../views/pages/404.vue'
 import MemberView from '../views/pages/MemberView.vue'
+<<<<<<< Updated upstream
+=======
+import Profile from '../views/pages/Profile.vue'
+import EmailVerifier from '../views/pages/EmailVerifier.vue'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+
+>>>>>>> Stashed changes
 
 const router = new VueRouter({
     mode: 'history',
@@ -32,6 +50,21 @@ const router = new VueRouter({
 
             }
         },
+        
+        {
+            path: '/verify',
+            name: 'verifyWtk',
+            component: EmailVerifier,
+            meta: {
+                auth: false,
+                forbiddenRedirect: '/',
+                notFoundRedirect: '/',
+            },
+            props: (route) => ({
+                query: route.query.token
+            })
+        }
+        ,
         {
             path: '/berita',
             name: 'berita',
@@ -64,6 +97,21 @@ const router = new VueRouter({
         },
     ],
 });
+
+router.beforeResolve((to, from, next) => {
+    // If this isn't an initial page load.
+    if (to.name) {
+        // Start the route progress bar.
+        NProgress.start()
+    }
+    next()
+})
+
+router.afterEach((to, from) => {
+    // Complete the animation of the route progress bar.
+    NProgress.done()
+})
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

@@ -1,5 +1,5 @@
 <template>
-    <div class="row p-x-10 pad-t-60px">
+    <div class="row p-x-10 pad-t-60px" style="max-width: 100vw">
 		<div class="container register-container border-radius-5px mar-t-20px">
 			<fieldset >
 				

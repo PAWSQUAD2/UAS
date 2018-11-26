@@ -1,7 +1,12 @@
 <template>
     <nav class="navbar mNav fixed-top navbar-expand-lg navbar-light bg-light"> 
+<<<<<<< Updated upstream
         <a class="logo"><img src="images/emblen.jpg"/></a>
         <a class="navbar-brand" href="index.php">KSR</a>
+=======
+        <a class="logo"><img src="/images/emblen.jpg"/></a>
+        <router-link :to="{ name: 'home' }"  class="navbar-brand">KSR</router-link>
+>>>>>>> Stashed changes
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"><em>&nbsp;</em></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent1">
             <ul class="navbar-nav mr-auto">
@@ -20,7 +25,7 @@
                 <li v-if="$auth.check()" class="nav-item dropdown" style="margin:0; padding:0;">
                     <a style="margin:0; padding: 0;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="navbar-profile navbar-nav color-lightTheme mr-auto" style="display:inline;">
-                            <img class="avatar" v-bind:src="$auth.user().photoUrl==null? 'images/pp.png':$auth.user().photoUrl" alt="avatar"/>
+                            <img class="avatar" v-bind:src="$auth.user().photoUrl==null? '/images/pp.png':$auth.user().photoUrl" alt="avatar"/>
                         <span class="name">{{ $auth.user().name }}</span>
                         </div> 
                     </a>

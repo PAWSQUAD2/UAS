@@ -11,5 +11,4 @@ class News extends Model
     public $timestamp = true;
     protected $fillable = ['judul','isi',
                             'photoUrl','kategori'];
-
 }

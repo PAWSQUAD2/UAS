@@ -25053,6 +25053,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__views_pages_404_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__views_pages_404_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__views_pages_MemberView_vue__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__views_pages_MemberView_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__views_pages_MemberView_vue__);
+<<<<<<< Updated upstream
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__views_pages_Profile_vue__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__views_pages_Profile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__views_pages_Profile_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__views_pages_EmailVerifier_vue__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__views_pages_EmailVerifier_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__views_pages_EmailVerifier_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_nprogress__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_nprogress___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_nprogress__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_nprogress_nprogress_css__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_nprogress_nprogress_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_nprogress_nprogress_css__);
+>>>>>>> Stashed changes
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -25065,9 +25076,27 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_3_vue_axios___default.a, __WEBPACK_IMPORTED_MODULE_2_axios___default.a);
 __WEBPACK_IMPORTED_MODULE_2_axios___default.a.defaults.baseURL = 'http://localhost:8000/api';
+<<<<<<< Updated upstream
 window.Vue = __webpack_require__(5);
+=======
+__WEBPACK_IMPORTED_MODULE_2_axios___default.a.interceptors.request.use(function (config) {
+    __WEBPACK_IMPORTED_MODULE_12_nprogress___default.a.start();
+    return config;
+});
+
+// before a response is returned stop nprogress
+__WEBPACK_IMPORTED_MODULE_2_axios___default.a.interceptors.response.use(function (response) {
+    __WEBPACK_IMPORTED_MODULE_12_nprogress___default.a.done();
+    return response;
+});
+window.Vue = __webpack_require__(7);
+>>>>>>> Stashed changes
 
 __webpack_require__(39);
+
+
+
+
 
 
 
@@ -25085,6 +25114,20 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
         meta: {
             auth: undefined
 
+        }
+    }, {
+        path: '/verify',
+        name: 'verifyWtk',
+        component: __WEBPACK_IMPORTED_MODULE_11__views_pages_EmailVerifier_vue___default.a,
+        meta: {
+            auth: false,
+            forbiddenRedirect: '/',
+            notFoundRedirect: '/'
+        },
+        props: function props(route) {
+            return {
+                query: route.query.token
+            };
         }
     }, {
         path: '/berita',
@@ -25113,6 +25156,21 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
         component: __WEBPACK_IMPORTED_MODULE_8__views_pages_404_vue___default.a
     }]
 });
+
+router.beforeResolve(function (to, from, next) {
+    // If this isn't an initial page load.
+    if (to.name) {
+        // Start the route progress bar.
+        __WEBPACK_IMPORTED_MODULE_12_nprogress___default.a.start();
+    }
+    next();
+});
+
+router.afterEach(function (to, from) {
+    // Complete the animation of the route progress bar.
+    __WEBPACK_IMPORTED_MODULE_12_nprogress___default.a.done();
+});
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -50237,6 +50295,27 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -50355,7 +50434,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+<<<<<<< Updated upstream
 /* harmony default export */ __webpack_exports__["default"] = ({});
+=======
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            news: []
+        };
+    },
+    beforeMount: function beforeMount() {
+        var _this = this;
+
+        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('news').then(function (res) {
+            _this.news = res.data;
+        }).catch(function (res) {});
+    }
+});
+>>>>>>> Stashed changes
 
 /***/ }),
 /* 49 */
@@ -50365,372 +50462,483 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container-fluid no-v-pad" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "body",
+        staticStyle: {
+          "max-height": "1000px",
+          "background-color": "rgb(64, 67, 68)",
+          overflow: "auto"
+        }
+      },
+      [
+        _c("div", { staticClass: " col-xl-12" }, [
+          _vm._m(2),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "al-row-padding" },
+            _vm._l(_vm.news, function(data, index) {
+              return _c(
+                "div",
+                {
+                  key: data.id,
+                  staticClass: "al-col al al-m al-margin-bottom",
+                  attrs: {
+                    "data-aos-duration": "1000",
+                    "data-aos": index % 2 == 0 ? "flip-right" : "flip-left"
+                  }
+                },
+                [
+                  _c("div", { staticClass: "al-display-container" }, [
+                    _c(
+                      "div",
+                      { staticClass: "al-display-topleft al-black al-padding" },
+                      [_vm._v(_vm._s(data.kategori))]
+                    ),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticStyle: {
+                        width: "100%",
+                        "max-width": "300px",
+                        "max-height": "200px"
+                      },
+                      attrs: {
+                        src: data.photoUrl,
+                        alt: "'.$data['kategori'].'"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "al-title color-lightTheme bold",
+                        attrs: { href: "berita.php?id='.$data['id'].'" }
+                      },
+                      [_vm._v(_vm._s(data.judul))]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass: "al-caption color-lightTheme",
+                        attrs: { "max-lines": "5" }
+                      },
+                      [_vm._v(_vm._s(data.isi))]
+                    )
+                  ])
+                ]
+              )
+            })
+          )
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _vm._m(3),
+    _vm._v(" "),
+    _vm._m(4)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container-fluid no-v-pad" }, [
-      _c("div", { staticClass: "row top " }, [
-        _c(
-          "div",
-          {
-            staticClass: "carousel slide",
-            staticStyle: { "background-color": "grey" },
-            attrs: { id: "myCarousel", "data-ride": "carousel" }
-          },
-          [
-            _c("ol", { staticClass: "carousel-indicators" }, [
-              _c("li", {
-                staticClass: "active",
-                attrs: { "data-target": "#myCarousel", "data-slide-to": "0" }
-              }),
-              _vm._v(" "),
-              _c("li", {
-                attrs: { "data-target": "#myCarousel", "data-slide-to": "1" }
-              }),
-              _vm._v(" "),
-              _c("li", {
-                attrs: { "data-target": "#myCarousel", "data-slide-to": "2" }
-              })
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "carousel-inner", attrs: { role: "listbox" } },
-              [
-                _c("div", { staticClass: "carousel-item active" }, [
-                  _c("img", {
-                    staticClass: "d-block mx-auto",
-                    attrs: { src: "images/img01.jpg", alt: "First slide" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "carousel-caption" }, [
-                    _c("h5", [_vm._v("Project")]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v("Kreativitas membuat sebuah robot")])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "carousel-item" }, [
-                  _c("img", {
-                    staticClass: "d-block mx-auto",
-                    attrs: { src: "images/img02.jpg", alt: "Second slide" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "carousel-caption" }, [
-                    _c("h5", [_vm._v("Wisudawan Fosil")]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v("Menghadiri acara wisudawan para fosil")])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "carousel-item" }, [
-                  _c("img", {
-                    staticClass: "d-block mx-auto",
-                    attrs: { src: "images/img03.jpg", alt: "Third slide" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "carousel-caption" }, [
-                    _c("h5", [_vm._v("TEA PARTY")]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v("Acara Perpisahaan dan Ulang Tahun para fosil")
-                    ])
-                  ])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "carousel-control-prev",
-                attrs: {
-                  href: "#myCarousel",
-                  role: "button",
-                  "data-slide": "prev"
-                }
-              },
-              [
-                _c("span", {
-                  staticClass: "carousel-control-prev-icon",
-                  attrs: { "aria-hidden": "true" }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "carousel-control-next",
-                attrs: {
-                  href: "#myCarousel",
-                  role: "button",
-                  "data-slide": "next"
-                }
-              },
-              [
-                _c("span", {
-                  staticClass: "carousel-control-next-icon",
-                  attrs: { "aria-hidden": "true" }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
-              ]
-            )
-          ]
-        )
-      ]),
-      _vm._v(" "),
+    return _c("div", { staticClass: "row top " }, [
       _c(
         "div",
         {
-          staticClass: "p-x-10",
-          staticStyle: {
-            "background-color": "white",
-            "padding-top": "40px",
-            "padding-bottom": "40px"
-          }
+          staticClass: "carousel slide",
+          staticStyle: { "background-color": "grey" },
+          attrs: { id: "myCarousel", "data-ride": "carousel" }
         },
         [
-          _c("div", { staticClass: "container-fluid pad25B row" }, [
-            _c("div", { staticClass: "col-md-4 pad25B my-auto" }, [
-              _c(
-                "div",
-                { staticClass: "card-view", attrs: { "data-aos": "fade-in" } },
-                [
-                  _c("div", { staticClass: "icon-card-view" }),
-                  _vm._v(" "),
-                  _c("h3", { staticClass: "heder-card-view" }, [
-                    _vm._v("Mechanic")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "content-card-view" }, [
-                    _vm._v(
-                      "Mechanic merupakan bentuk badan dari robot dan mekanisme kerjanya, sehingga kurikulum yang kami ajarkan tentang bagaimana membuat bentuk dan proses kerjanya. "
-                    )
-                  ])
-                ]
-              )
-            ]),
+          _c("ol", { staticClass: "carousel-indicators" }, [
+            _c("li", {
+              staticClass: "active",
+              attrs: { "data-target": "#myCarousel", "data-slide-to": "0" }
+            }),
             _vm._v(" "),
-            _c("div", { staticClass: "col-md-4 pad25B my-auto" }, [
-              _c(
-                "div",
-                { staticClass: "card-view", attrs: { "data-aos": "fade-in" } },
-                [
-                  _c("div", { staticClass: "icon2-card-view" }),
-                  _vm._v(" "),
-                  _c("h3", { staticClass: "heder-card-view" }, [
-                    _vm._v("Electronic")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "content-card-view" }, [
-                    _vm._v(
-                      "Electronic merupakan isi dari robot, mulai dari sensor hingga penggerak, dari baterai hingga tampilan display yang semuanya akan diatur oleh komputer.  "
-                    )
-                  ])
-                ]
-              )
-            ]),
+            _c("li", {
+              attrs: { "data-target": "#myCarousel", "data-slide-to": "1" }
+            }),
             _vm._v(" "),
-            _c("div", { staticClass: "col-md-4 pad25B my-auto" }, [
-              _c(
-                "div",
-                { staticClass: "card-view", attrs: { "data-aos": "fade-in" } },
-                [
-                  _c("div", { staticClass: "icon3-card-view" }),
-                  _vm._v(" "),
-                  _c("h3", { staticClass: "heder-card-view" }, [
-                    _vm._v("COMPUTER")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "content-card-view" }, [
-                    _vm._v(
-                      "Seluruh proses dalam robot diatur dalam computer, sehingga untuk dapat membuat robot bergerak sesuai kebutuhan akan diperlukan kemampuan pemrograman.  "
-                    )
-                  ])
-                ]
-              )
-            ])
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "body",
-          staticStyle: {
-            "max-height": "1200px",
-            "background-color": "white",
-            overflow: "hidden"
-          }
-        },
-        [
-          _c("div", { staticClass: "row ald-padding-64 pad-b-40px" }, [
-            _c(
-              "div",
-              {
-                staticClass: "ald-col m6 ald-padding-large",
-                attrs: { "data-aos": "fade-right" }
-              },
-              [
-                _c("img", {
-                  staticClass: "ald-round ald-image ald-opacity-min",
-                  attrs: {
-                    src: "images/mechatron.jpg",
-                    alt: "Mechatron",
-                    width: "600",
-                    height: "750"
-                  }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "ald-col m6 ald-padding-large",
-                attrs: { "data-aos": "flip-left" }
-              },
-              [
-                _c("h1", { staticClass: "ald-center" }, [
-                  _vm._v("Mutant: Mechatron - Rise of the Robots Roleplaying")
-                ]),
-                _c("br"),
-                _vm._v(" "),
-                _c("h5", { staticClass: "ald-center" }, [
-                  _vm._v("--Fria Ligan--")
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "ald-large" }, [
-                  _vm._v(
-                    "The machines awake in this postapocalyptic RPG in the vein of Asimov and Westworld, set in the universe of acclaimed Mutant: Year Zero."
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "p",
-                  { staticClass: "ald-large ald-text-grey ald-hide-medium" },
-                  [
-                    _vm._v(
-                      "In the huge underwater Mechatron-7 facility, armies of machines toil away in decaying factories. When the war raged the humans fled, leaving their robotic servants with one simple command: continue the production until we return. That was decades ago. Now, something is changing. Robots in Mechatron-7 are starting to malfunction. To rebel. To express a will of their own. To Awake. It's time for the machines to make their mark on the dawnworld."
-                    )
-                  ]
-                )
-              ]
-            )
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "grid",
-          staticStyle: { opacity: ".7", overflow: "hidden" }
-        },
-        [
+            _c("li", {
+              attrs: { "data-target": "#myCarousel", "data-slide-to": "2" }
+            })
+          ]),
+          _vm._v(" "),
           _c(
             "div",
+            { staticClass: "carousel-inner", attrs: { role: "listbox" } },
+            [
+              _c("div", { staticClass: "carousel-item active" }, [
+                _c("img", {
+                  staticClass: "d-block mx-auto",
+                  attrs: { src: "images/img01.jpg", alt: "First slide" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "carousel-caption" }, [
+                  _c("h5", [_vm._v("Project")]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Kreativitas membuat sebuah robot")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "carousel-item" }, [
+                _c("img", {
+                  staticClass: "d-block mx-auto",
+                  attrs: { src: "images/img02.jpg", alt: "Second slide" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "carousel-caption" }, [
+                  _c("h5", [_vm._v("Wisudawan Fosil")]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Menghadiri acara wisudawan para fosil")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "carousel-item" }, [
+                _c("img", {
+                  staticClass: "d-block mx-auto",
+                  attrs: { src: "images/img03.jpg", alt: "Third slide" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "carousel-caption" }, [
+                  _c("h5", [_vm._v("TEA PARTY")]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v("Acara Perpisahaan dan Ulang Tahun para fosil")
+                  ])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
             {
-              staticClass: "about-container",
-              staticStyle: { height: "500px", opacity: "50%" }
+              staticClass: "carousel-control-prev",
+              attrs: {
+                href: "#myCarousel",
+                role: "button",
+                "data-slide": "prev"
+              }
             },
             [
-              _c(
-                "div",
-                {
-                  staticClass: "col no-padding",
-                  staticStyle: { opacity: "50%" }
-                },
-                [
-                  _c("div", { staticClass: "emblem clear-margin" }, [
-                    _c("div", { staticClass: "logo" }, [
-                      _c("img", { attrs: { src: "images/emblen.jpg" } })
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "h3",
-                      { staticClass: "caption color-darkTheme clear-margin" },
-                      [_vm._v("About Us")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "tentang-ksr-data clear-margin" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "col visi",
-                          staticStyle: { color: "white" }
-                        },
-                        [
-                          _c(
-                            "h2",
-                            {
-                              staticStyle: {
-                                "text-align": "center",
-                                "font-weight": "bold"
-                              }
-                            },
-                            [_vm._v("VISI ")]
-                          ),
-                          _vm._v(" "),
-                          _c("br"),
-                          _vm._v(" "),
-                          _c("p", [
-                            _vm._v(
-                              "\n                                    Menjadikan KSR terkemuka dalam pengembangan ilmu pengetahuan dan teknologi dalam bidang robotika. \n                            "
-                            )
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "col misi",
-                          staticStyle: { overflow: "auto" }
-                        },
-                        [
-                          _c(
-                            "h2",
-                            {
-                              staticStyle: {
-                                "text-align": "center",
-                                "font-weight": "bold"
-                              }
-                            },
-                            [_vm._v("MISI ")]
-                          ),
-                          _vm._v(" "),
-                          _c("br"),
-                          _vm._v(" "),
-                          _c("p", [
-                            _vm._v(
-                              "\n                                1. Mengikuti kompetisi yang berhubungan dengan robotika.\n                                2. Menyelenggarakan penelitian dan pengabdian di bidang robotika kepada masyarakat yang dapat meningkatkan kesejahteraan manusia.\n                                3. Menyelenggarakan pelatihan dan pendidikan di bidang robotika guna mengaplikasikan ilmu pengetahuan kepada masyarakat luas.\n                                4. Menyelenggarakan kerjasama dengan pihak lain guna mengembangkan ilmu pengetahuan dan teknologi dalam bidang robotika. \n                            "
-                            )
-                          ])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "row" })
-                  ])
-                ]
-              )
+              _c("span", {
+                staticClass: "carousel-control-prev-icon",
+                attrs: { "aria-hidden": "true" }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "carousel-control-next",
+              attrs: {
+                href: "#myCarousel",
+                role: "button",
+                "data-slide": "next"
+              }
+            },
+            [
+              _c("span", {
+                staticClass: "carousel-control-next-icon",
+                attrs: { "aria-hidden": "true" }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
             ]
           )
         ]
       )
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "p-x-10",
+        staticStyle: {
+          "background-color": "white",
+          "padding-top": "40px",
+          "padding-bottom": "40px"
+        }
+      },
+      [
+        _c("div", { staticClass: "container-fluid pad25B row" }, [
+          _c("div", { staticClass: "col-md-4 pad25B my-auto" }, [
+            _c(
+              "div",
+              { staticClass: "card-view", attrs: { "data-aos": "fade-in" } },
+              [
+                _c("div", { staticClass: "icon-card-view" }),
+                _vm._v(" "),
+                _c("h3", { staticClass: "heder-card-view" }, [
+                  _vm._v("Mechanic")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "content-card-view" }, [
+                  _vm._v(
+                    "Mechanic merupakan bentuk badan dari robot dan mekanisme kerjanya, sehingga kurikulum yang kami ajarkan tentang bagaimana membuat bentuk dan proses kerjanya. "
+                  )
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-4 pad25B my-auto" }, [
+            _c(
+              "div",
+              { staticClass: "card-view", attrs: { "data-aos": "fade-in" } },
+              [
+                _c("div", { staticClass: "icon2-card-view" }),
+                _vm._v(" "),
+                _c("h3", { staticClass: "heder-card-view" }, [
+                  _vm._v("Electronic")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "content-card-view" }, [
+                  _vm._v(
+                    "Electronic merupakan isi dari robot, mulai dari sensor hingga penggerak, dari baterai hingga tampilan display yang semuanya akan diatur oleh komputer.  "
+                  )
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-4 pad25B my-auto" }, [
+            _c(
+              "div",
+              { staticClass: "card-view", attrs: { "data-aos": "fade-in" } },
+              [
+                _c("div", { staticClass: "icon3-card-view" }),
+                _vm._v(" "),
+                _c("h3", { staticClass: "heder-card-view" }, [
+                  _vm._v("COMPUTER")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "content-card-view" }, [
+                  _vm._v(
+                    "Seluruh proses dalam robot diatur dalam computer, sehingga untuk dapat membuat robot bergerak sesuai kebutuhan akan diperlukan kemampuan pemrograman.  "
+                  )
+                ])
+              ]
+            )
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "al-panel al-padding-32", attrs: { id: "projects" } },
+      [
+        _c(
+          "h3",
+          {
+            staticClass:
+              "al-padding-bootom al-border-light-grey al-padding-16 color-lightTheme"
+          },
+          [_vm._v("Trending")]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "body",
+        staticStyle: {
+          "max-height": "1200px",
+          "background-color": "white",
+          overflow: "hidden"
+        }
+      },
+      [
+        _c("div", { staticClass: "row ald-padding-64 pad-b-40px" }, [
+          _c(
+            "div",
+            {
+              staticClass: "ald-col m6 ald-padding-large",
+              attrs: { "data-aos": "fade-right" }
+            },
+            [
+              _c("img", {
+                staticClass: "ald-round ald-image ald-opacity-min",
+                attrs: {
+                  src: "images/mechatron.jpg",
+                  alt: "Mechatron",
+                  width: "600",
+                  height: "750"
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "ald-col m6 ald-padding-large",
+              attrs: { "data-aos": "flip-left" }
+            },
+            [
+              _c("h1", { staticClass: "ald-center" }, [
+                _vm._v("Mutant: Mechatron - Rise of the Robots Roleplaying")
+              ]),
+              _c("br"),
+              _vm._v(" "),
+              _c("h5", { staticClass: "ald-center" }, [
+                _vm._v("--Fria Ligan--")
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "ald-large" }, [
+                _vm._v(
+                  "The machines awake in this postapocalyptic RPG in the vein of Asimov and Westworld, set in the universe of acclaimed Mutant: Year Zero."
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "p",
+                { staticClass: "ald-large ald-text-grey ald-hide-medium" },
+                [
+                  _vm._v(
+                    "In the huge underwater Mechatron-7 facility, armies of machines toil away in decaying factories. When the war raged the humans fled, leaving their robotic servants with one simple command: continue the production until we return. That was decades ago. Now, something is changing. Robots in Mechatron-7 are starting to malfunction. To rebel. To express a will of their own. To Awake. It's time for the machines to make their mark on the dawnworld."
+                  )
+                ]
+              )
+            ]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "grid",
+        staticStyle: { opacity: ".7", overflow: "hidden" }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "about-container",
+            staticStyle: { height: "500px", opacity: "50%" }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "col no-padding",
+                staticStyle: { opacity: "50%" }
+              },
+              [
+                _c("div", { staticClass: "emblem clear-margin" }, [
+                  _c("div", { staticClass: "logo" }, [
+                    _c("img", { attrs: { src: "images/emblen.jpg" } })
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "h3",
+                    { staticClass: "caption color-darkTheme clear-margin" },
+                    [_vm._v("About Us")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "tentang-ksr-data clear-margin" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "col visi",
+                        staticStyle: { color: "white" }
+                      },
+                      [
+                        _c(
+                          "h2",
+                          {
+                            staticStyle: {
+                              "text-align": "center",
+                              "font-weight": "bold"
+                            }
+                          },
+                          [_vm._v("VISI ")]
+                        ),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "\n                                    Menjadikan KSR terkemuka dalam pengembangan ilmu pengetahuan dan teknologi dalam bidang robotika. \n                            "
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "col misi",
+                        staticStyle: { overflow: "auto" }
+                      },
+                      [
+                        _c(
+                          "h2",
+                          {
+                            staticStyle: {
+                              "text-align": "center",
+                              "font-weight": "bold"
+                            }
+                          },
+                          [_vm._v("MISI ")]
+                        ),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "\n                                1. Mengikuti kompetisi yang berhubungan dengan robotika.\n                                2. Menyelenggarakan penelitian dan pengabdian di bidang robotika kepada masyarakat yang dapat meningkatkan kesejahteraan manusia.\n                                3. Menyelenggarakan pelatihan dan pendidikan di bidang robotika guna mengaplikasikan ilmu pengetahuan kepada masyarakat luas.\n                                4. Menyelenggarakan kerjasama dengan pihak lain guna mengembangkan ilmu pengetahuan dan teknologi dalam bidang robotika. \n                            "
+                          )
+                        ])
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" })
+                ])
+              ]
+            )
+          ]
+        )
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -51156,517 +51364,531 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row p-x-10 pad-t-60px" }, [
-    _c(
-      "div",
-      {
-        staticClass: "container register-container border-radius-5px mar-t-20px"
-      },
-      [
-        _c("fieldset", [
-          !_vm.success
-            ? _c(
-                "form",
-                {
-                  attrs: { autocomplete: "off", method: "post" },
-                  on: {
-                    submit: function($event) {
-                      $event.preventDefault()
-                      return _vm.register($event)
+  return _c(
+    "div",
+    {
+      staticClass: "row p-x-10 pad-t-60px",
+      staticStyle: { "max-width": "100vw" }
+    },
+    [
+      _c(
+        "div",
+        {
+          staticClass:
+            "container register-container border-radius-5px mar-t-20px"
+        },
+        [
+          _c("fieldset", [
+            !_vm.success
+              ? _c(
+                  "form",
+                  {
+                    attrs: { autocomplete: "off", method: "post" },
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.register($event)
+                      }
                     }
-                  }
-                },
-                [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-xl-12" }, [
-                      _vm._m(1),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.name,
-                            expression: "name"
-                          }
-                        ],
-                        staticClass: "placeholder-lightTheme",
-                        attrs: {
-                          name: "name",
-                          type: "text",
-                          placeholder: "Jo Vianto",
-                          required: "",
-                          id: "name",
-                          maxlength: "30"
-                        },
-                        domProps: { value: _vm.name },
-                        on: {
-                          keyup: function($event) {
-                            _vm.inputValidation("name", "name", "name_er")
-                          },
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.name = $event.target.value
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm._m(2)
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-xl-12" }, [
-                      _vm._m(3),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.email,
-                            expression: "email"
-                          }
-                        ],
-                        staticClass: "placeholder-lightTheme",
-                        attrs: {
-                          name: "email",
-                          type: "text",
-                          required: "",
-                          placeholder: "example@domain.com",
-                          id: "email",
-                          maxlength: "50"
-                        },
-                        domProps: { value: _vm.email },
-                        on: {
-                          keyup: function($event) {
-                            _vm.inputValidation("email", "email", "email_er")
-                          },
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.email = $event.target.value
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm._m(4)
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-xl-12" }, [
-                      _vm._m(5),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.password,
-                            expression: "password"
-                          }
-                        ],
-                        staticClass: "placeholder-lightTheme",
-                        attrs: {
-                          name: "pass",
-                          type: "password",
-                          placeholder: "Password",
-                          required: "",
-                          id: "pass",
-                          maxlength: "25",
-                          minlength: "6"
-                        },
-                        domProps: { value: _vm.password },
-                        on: {
-                          keyup: function($event) {
-                            _vm.inputValidation("pass", "pass", "pass_er")
-                          },
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.password = $event.target.value
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm._m(6)
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-xl-12" }, [
-                      _vm._m(7),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "placeholder-lightTheme",
-                        attrs: {
-                          type: "password",
-                          placeholder: "Re-Password",
-                          required: "",
-                          id: "repass"
-                        },
-                        on: {
-                          keyup: function($event) {
-                            _vm.rePassValidation("pass", "repass", "rePass_er")
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm._m(8)
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-xl-12" }, [
-                      _vm._m(9),
-                      _vm._v(" "),
-                      _c(
-                        "select",
-                        {
+                  },
+                  [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-xl-12" }, [
+                        _vm._m(1),
+                        _vm._v(" "),
+                        _c("input", {
                           directives: [
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.prody,
-                              expression: "prody"
+                              value: _vm.name,
+                              expression: "name"
                             }
                           ],
-                          staticClass: "full-width",
-                          attrs: { name: "jurusan", required: "" },
+                          staticClass: "placeholder-lightTheme",
+                          attrs: {
+                            name: "name",
+                            type: "text",
+                            placeholder: "Jo Vianto",
+                            required: "",
+                            id: "name",
+                            maxlength: "30"
+                          },
+                          domProps: { value: _vm.name },
                           on: {
-                            change: function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.prody = $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            }
-                          }
-                        },
-                        [
-                          _c(
-                            "option",
-                            {
-                              attrs: { disabled: "", selected: "", value: "" }
+                            keyup: function($event) {
+                              _vm.inputValidation("name", "name", "name_er")
                             },
-                            [_vm._v(" -- pilih sebuah prody -- ")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "option",
-                            { attrs: { value: "Teknik Informatika" } },
-                            [_vm._v("Teknik Informatika")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "option",
-                            { attrs: { value: "Teknik Industri" } },
-                            [_vm._v("Teknik Industri")]
-                          ),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "TIKI" } }, [
-                            _vm._v("TIKI")
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "option",
-                            { attrs: { value: "Sistem Informasi" } },
-                            [_vm._v("Sistem Informasi")]
-                          )
-                        ]
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-xl-12" }, [
-                      _vm._m(10),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.npm,
-                            expression: "npm"
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.name = $event.target.value
+                            }
                           }
-                        ],
-                        staticClass: "placeholder-lightTheme",
-                        attrs: {
-                          name: "npm",
-                          type: "tel",
-                          placeholder: "123456789",
-                          required: "",
-                          id: "npm",
-                          maxlength: "9"
-                        },
-                        domProps: { value: _vm.npm },
-                        on: {
-                          keyup: function($event) {
-                            _vm.inputValidation("npm", "npm", "npm_er")
+                        }),
+                        _vm._v(" "),
+                        _vm._m(2)
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-xl-12" }, [
+                        _vm._m(3),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.email,
+                              expression: "email"
+                            }
+                          ],
+                          staticClass: "placeholder-lightTheme",
+                          attrs: {
+                            name: "email",
+                            type: "text",
+                            required: "",
+                            placeholder: "example@domain.com",
+                            id: "email",
+                            maxlength: "50"
                           },
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                          domProps: { value: _vm.email },
+                          on: {
+                            keyup: function($event) {
+                              _vm.inputValidation("email", "email", "email_er")
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.email = $event.target.value
                             }
-                            _vm.npm = $event.target.value
                           }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm._m(11)
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-xl-12" }, [
-                      _vm._m(12),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.phone,
-                            expression: "phone"
-                          }
-                        ],
-                        staticClass: "placeholder-lightTheme",
-                        attrs: {
-                          name: "phone",
-                          type: "text",
-                          placeholder: "00123",
-                          required: "",
-                          id: "phone"
-                        },
-                        domProps: { value: _vm.phone },
-                        on: {
-                          keyup: function($event) {
-                            _vm.inputValidation("number", "phone", "phone_er")
+                        }),
+                        _vm._v(" "),
+                        _vm._m(4)
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-xl-12" }, [
+                        _vm._m(5),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.password,
+                              expression: "password"
+                            }
+                          ],
+                          staticClass: "placeholder-lightTheme",
+                          attrs: {
+                            name: "pass",
+                            type: "password",
+                            placeholder: "Password",
+                            required: "",
+                            id: "pass",
+                            maxlength: "25",
+                            minlength: "6"
                           },
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                          domProps: { value: _vm.password },
+                          on: {
+                            keyup: function($event) {
+                              _vm.inputValidation("pass", "pass", "pass_er")
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.password = $event.target.value
                             }
-                            _vm.phone = $event.target.value
                           }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm._m(13)
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-xl-12" }, [
-                      _vm._m(14),
-                      _c("span", { staticClass: "validity" }),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
+                        }),
+                        _vm._v(" "),
+                        _vm._m(6)
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-xl-12" }, [
+                        _vm._m(7),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "placeholder-lightTheme",
+                          attrs: {
+                            type: "password",
+                            placeholder: "Re-Password",
+                            required: "",
+                            id: "repass"
+                          },
+                          on: {
+                            keyup: function($event) {
+                              _vm.rePassValidation(
+                                "pass",
+                                "repass",
+                                "rePass_er"
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm._m(8)
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-xl-12" }, [
+                        _vm._m(9),
+                        _vm._v(" "),
+                        _c(
+                          "select",
                           {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.bornPlace,
-                            expression: "bornPlace"
-                          }
-                        ],
-                        staticClass: "placeholder-lightTheme",
-                        attrs: {
-                          name: "bornPlace",
-                          type: "text",
-                          placeholder: "Yogyakarta"
-                        },
-                        domProps: { value: _vm.bornPlace },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.prody,
+                                expression: "prody"
+                              }
+                            ],
+                            staticClass: "full-width",
+                            attrs: { name: "jurusan", required: "" },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.prody = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
                             }
-                            _vm.bornPlace = $event.target.value
-                          }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-xl-12" }, [
-                      _vm._m(15),
-                      _c("span", { staticClass: "validity" }),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.birthDay,
-                            expression: "birthDay"
-                          }
-                        ],
-                        staticClass: "placeholder-lightTheme",
-                        attrs: { name: "birthDay", type: "date" },
-                        domProps: { value: _vm.birthDay },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.birthDay = $event.target.value
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm.error && !_vm.success
-                        ? _c("div", { staticClass: "alert alert-danger" }, [
-                            _vm._v(
-                              "\n\t\t\t\t\t\t\tThere was an error, unable to complete registration.\n\t\t\t\t\t\t"
+                          },
+                          [
+                            _c(
+                              "option",
+                              {
+                                attrs: { disabled: "", selected: "", value: "" }
+                              },
+                              [_vm._v(" -- pilih sebuah prody -- ")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              { attrs: { value: "Teknik Informatika" } },
+                              [_vm._v("Teknik Informatika")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              { attrs: { value: "Teknik Industri" } },
+                              [_vm._v("Teknik Industri")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "TIKI" } }, [
+                              _vm._v("TIKI")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              { attrs: { value: "Sistem Informasi" } },
+                              [_vm._v("Sistem Informasi")]
                             )
-                          ])
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("p"),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "full-width",
-                        attrs: {
-                          type: "submit",
-                          value: "Register",
-                          name: "register"
-                        }
-                      })
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-xl-12" }, [
+                        _vm._m(10),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.npm,
+                              expression: "npm"
+                            }
+                          ],
+                          staticClass: "placeholder-lightTheme",
+                          attrs: {
+                            name: "npm",
+                            type: "tel",
+                            placeholder: "123456789",
+                            required: "",
+                            id: "npm",
+                            maxlength: "9"
+                          },
+                          domProps: { value: _vm.npm },
+                          on: {
+                            keyup: function($event) {
+                              _vm.inputValidation("npm", "npm", "npm_er")
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.npm = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm._m(11)
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-xl-12" }, [
+                        _vm._m(12),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.phone,
+                              expression: "phone"
+                            }
+                          ],
+                          staticClass: "placeholder-lightTheme",
+                          attrs: {
+                            name: "phone",
+                            type: "text",
+                            placeholder: "00123",
+                            required: "",
+                            id: "phone"
+                          },
+                          domProps: { value: _vm.phone },
+                          on: {
+                            keyup: function($event) {
+                              _vm.inputValidation("number", "phone", "phone_er")
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.phone = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm._m(13)
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-xl-12" }, [
+                        _vm._m(14),
+                        _c("span", { staticClass: "validity" }),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.bornPlace,
+                              expression: "bornPlace"
+                            }
+                          ],
+                          staticClass: "placeholder-lightTheme",
+                          attrs: {
+                            name: "bornPlace",
+                            type: "text",
+                            placeholder: "Yogyakarta"
+                          },
+                          domProps: { value: _vm.bornPlace },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.bornPlace = $event.target.value
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-xl-12" }, [
+                        _vm._m(15),
+                        _c("span", { staticClass: "validity" }),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.birthDay,
+                              expression: "birthDay"
+                            }
+                          ],
+                          staticClass: "placeholder-lightTheme",
+                          attrs: { name: "birthDay", type: "date" },
+                          domProps: { value: _vm.birthDay },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.birthDay = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.error && !_vm.success
+                          ? _c("div", { staticClass: "alert alert-danger" }, [
+                              _vm._v(
+                                "\n\t\t\t\t\t\t\tThere was an error, unable to complete registration.\n\t\t\t\t\t\t"
+                              )
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c("p"),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "full-width",
+                          attrs: {
+                            type: "submit",
+                            value: "Register",
+                            name: "register"
+                          }
+                        })
+                      ])
                     ])
-                  ])
-                ]
-              )
-            : _vm._e()
-        ])
-      ]
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "container login-container border-radius-5px mar-t-20px" },
-      [
-        _c("fieldset", [
-          _vm._m(16),
-          _vm._v(" "),
-          _c(
-            "form",
-            {
-              attrs: { autocomplete: "off", method: "post" },
-              on: {
-                submit: function($event) {
-                  $event.preventDefault()
-                  return _vm.login($event)
+                  ]
+                )
+              : _vm._e()
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "container login-container border-radius-5px mar-t-20px"
+        },
+        [
+          _c("fieldset", [
+            _vm._m(16),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                attrs: { autocomplete: "off", method: "post" },
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.login($event)
+                  }
                 }
-              }
-            },
-            [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-xl-12" }, [
-                  _vm._m(17),
-                  _c("span", { staticClass: "validity" }),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.email_login,
-                        expression: "email_login"
-                      }
-                    ],
-                    staticClass: "placeholder-lightTheme",
-                    attrs: {
-                      name: "email_login",
-                      type: "text",
-                      placeholder: "example@domain.com",
-                      required: ""
-                    },
-                    domProps: { value: _vm.email_login },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+              },
+              [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-xl-12" }, [
+                    _vm._m(17),
+                    _c("span", { staticClass: "validity" }),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.email_login,
+                          expression: "email_login"
                         }
-                        _vm.email_login = $event.target.value
-                      }
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-xl-12" }, [
-                  _vm._m(18),
-                  _c("span", { staticClass: "validity" }),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.pass_login,
-                        expression: "pass_login"
-                      }
-                    ],
-                    staticClass: "placeholder-lightTheme",
-                    attrs: {
-                      name: "pass_login",
-                      type: "password",
-                      placeholder: "********",
-                      required: ""
-                    },
-                    domProps: { value: _vm.pass_login },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.pass_login = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticStyle: {
-                        "margin-bottom": "5px",
-                        "margin-top": "5"
+                      ],
+                      staticClass: "placeholder-lightTheme",
+                      attrs: {
+                        name: "email_login",
+                        type: "text",
+                        placeholder: "example@domain.com",
+                        required: ""
                       },
-                      attrs: { href: "#" }
-                    },
-                    [_vm._v("Lupa Password?")]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _vm.error_login
-                ? _c("div", { staticClass: "row  " }, [_vm._m(19)])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm._m(20)
-            ]
-          )
-        ])
-      ]
-    )
-  ])
+                      domProps: { value: _vm.email_login },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.email_login = $event.target.value
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-xl-12" }, [
+                    _vm._m(18),
+                    _c("span", { staticClass: "validity" }),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.pass_login,
+                          expression: "pass_login"
+                        }
+                      ],
+                      staticClass: "placeholder-lightTheme",
+                      attrs: {
+                        name: "pass_login",
+                        type: "password",
+                        placeholder: "********",
+                        required: ""
+                      },
+                      domProps: { value: _vm.pass_login },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.pass_login = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticStyle: {
+                          "margin-bottom": "5px",
+                          "margin-top": "5"
+                        },
+                        attrs: { href: "#" }
+                      },
+                      [_vm._v("Lupa Password?")]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm.error_login
+                  ? _c("div", { staticClass: "row  " }, [_vm._m(19)])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm._m(20)
+              ]
+            )
+          ])
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -54386,7 +54608,7 @@ var render = function() {
                                 attrs: {
                                   src:
                                     _vm.$auth.user().photoUrl == null
-                                      ? "images/pp.png"
+                                      ? "/images/pp.png"
                                       : _vm.$auth.user().photoUrl,
                                   alt: "avatar"
                                 }
@@ -54517,7 +54739,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("a", { staticClass: "logo" }, [
-      _c("img", { attrs: { src: "images/emblen.jpg" } })
+      _c("img", { attrs: { src: "/images/emblen.jpg" } })
     ])
   },
   function() {
@@ -55357,12 +55579,17 @@ if (false) {
 
 /***/ }),
 /* 89 */
+<<<<<<< Updated upstream
 =======
 /* 68 */
 >>>>>>> parent of 422042b... Member
 /***/ (function(module, exports, __webpack_require__) {
 
 var Auth = __webpack_require__(69)();
+=======
+/***/ (function(module, exports, __webpack_require__) {
+
+var Auth = __webpack_require__(90)();
 
 module.exports = (function () {
 
@@ -55403,12 +55630,12 @@ module.exports = (function () {
 })();
 
 /***/ }),
-/* 69 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __utils  = __webpack_require__(70),
-    __token  = __webpack_require__(71),
-    __cookie = __webpack_require__(14)
+var __utils  = __webpack_require__(91),
+    __token  = __webpack_require__(92),
+    __cookie = __webpack_require__(16)
 
 module.exports = function () {
 
@@ -56117,10 +56344,11 @@ module.exports = function () {
 
 
 /***/ }),
-/* 70 */
+/* 91 */
 /***/ (function(module, exports) {
 
 module.exports = (function (){
+>>>>>>> Stashed changes
 
     function isObject(val) {
         if (val !== null && typeof val === 'object' && val.constructor !== Array ) {
@@ -56199,10 +56427,19 @@ module.exports = (function (){
 
 
 /***/ }),
-/* 71 */
+<<<<<<< Updated upstream
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __cookie = __webpack_require__(14);
+var __utils  = __webpack_require__(70),
+    __token  = __webpack_require__(71),
+    __cookie = __webpack_require__(14)
+=======
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __cookie = __webpack_require__(16);
+>>>>>>> Stashed changes
 
 module.exports = (function () {
 
@@ -56279,7 +56516,7 @@ module.exports = (function () {
 })();
 
 /***/ }),
-/* 72 */
+/* 93 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -56301,7 +56538,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 73 */
+/* 94 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -56367,7 +56604,7 @@ module.exports = {
 
 
 /***/ }),
-/* 74 */
+/* 95 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -56435,10 +56672,1412 @@ module.exports = {
 };
 
 /***/ }),
-/* 75 */
+/* 96 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 97 */,
+/* 98 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+
+var stylesInDom = {};
+
+var	memoize = function (fn) {
+	var memo;
+
+	return function () {
+		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+		return memo;
+	};
+};
+
+var isOldIE = memoize(function () {
+	// Test for IE <= 9 as proposed by Browserhacks
+	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+	// Tests for existence of standard globals is to allow style-loader
+	// to operate correctly into non-standard environments
+	// @see https://github.com/webpack-contrib/style-loader/issues/177
+	return window && document && document.all && !window.atob;
+});
+
+var getElement = (function (fn) {
+	var memo = {};
+
+	return function(selector) {
+		if (typeof memo[selector] === "undefined") {
+			memo[selector] = fn.call(this, selector);
+		}
+
+		return memo[selector]
+	};
+})(function (target) {
+	return document.querySelector(target)
+});
+
+var singleton = null;
+var	singletonCounter = 0;
+var	stylesInsertedAtTop = [];
+
+var	fixUrls = __webpack_require__(99);
+
+module.exports = function(list, options) {
+	if (typeof DEBUG !== "undefined" && DEBUG) {
+		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+	}
+
+	options = options || {};
+
+	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
+
+	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+	// tags it will allow on a page
+	if (!options.singleton) options.singleton = isOldIE();
+
+	// By default, add <style> tags to the <head> element
+	if (!options.insertInto) options.insertInto = "head";
+
+	// By default, add <style> tags to the bottom of the target
+	if (!options.insertAt) options.insertAt = "bottom";
+
+	var styles = listToStyles(list, options);
+
+	addStylesToDom(styles, options);
+
+	return function update (newList) {
+		var mayRemove = [];
+
+		for (var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+
+			domStyle.refs--;
+			mayRemove.push(domStyle);
+		}
+
+		if(newList) {
+			var newStyles = listToStyles(newList, options);
+			addStylesToDom(newStyles, options);
+		}
+
+		for (var i = 0; i < mayRemove.length; i++) {
+			var domStyle = mayRemove[i];
+
+			if(domStyle.refs === 0) {
+				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
+
+				delete stylesInDom[domStyle.id];
+			}
+		}
+	};
+};
+
+function addStylesToDom (styles, options) {
+	for (var i = 0; i < styles.length; i++) {
+		var item = styles[i];
+		var domStyle = stylesInDom[item.id];
+
+		if(domStyle) {
+			domStyle.refs++;
+
+			for(var j = 0; j < domStyle.parts.length; j++) {
+				domStyle.parts[j](item.parts[j]);
+			}
+
+			for(; j < item.parts.length; j++) {
+				domStyle.parts.push(addStyle(item.parts[j], options));
+			}
+		} else {
+			var parts = [];
+
+			for(var j = 0; j < item.parts.length; j++) {
+				parts.push(addStyle(item.parts[j], options));
+			}
+
+			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+		}
+	}
+}
+
+function listToStyles (list, options) {
+	var styles = [];
+	var newStyles = {};
+
+	for (var i = 0; i < list.length; i++) {
+		var item = list[i];
+		var id = options.base ? item[0] + options.base : item[0];
+		var css = item[1];
+		var media = item[2];
+		var sourceMap = item[3];
+		var part = {css: css, media: media, sourceMap: sourceMap};
+
+		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
+		else newStyles[id].parts.push(part);
+	}
+
+	return styles;
+}
+
+function insertStyleElement (options, style) {
+	var target = getElement(options.insertInto)
+
+	if (!target) {
+		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
+	}
+
+	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
+
+	if (options.insertAt === "top") {
+		if (!lastStyleElementInsertedAtTop) {
+			target.insertBefore(style, target.firstChild);
+		} else if (lastStyleElementInsertedAtTop.nextSibling) {
+			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
+		} else {
+			target.appendChild(style);
+		}
+		stylesInsertedAtTop.push(style);
+	} else if (options.insertAt === "bottom") {
+		target.appendChild(style);
+	} else {
+		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+	}
+}
+
+function removeStyleElement (style) {
+	if (style.parentNode === null) return false;
+	style.parentNode.removeChild(style);
+
+	var idx = stylesInsertedAtTop.indexOf(style);
+	if(idx >= 0) {
+		stylesInsertedAtTop.splice(idx, 1);
+	}
+}
+
+function createStyleElement (options) {
+	var style = document.createElement("style");
+
+	options.attrs.type = "text/css";
+
+	addAttrs(style, options.attrs);
+	insertStyleElement(options, style);
+
+	return style;
+}
+
+function createLinkElement (options) {
+	var link = document.createElement("link");
+
+	options.attrs.type = "text/css";
+	options.attrs.rel = "stylesheet";
+
+	addAttrs(link, options.attrs);
+	insertStyleElement(options, link);
+
+	return link;
+}
+
+function addAttrs (el, attrs) {
+	Object.keys(attrs).forEach(function (key) {
+		el.setAttribute(key, attrs[key]);
+	});
+}
+
+function addStyle (obj, options) {
+	var style, update, remove, result;
+
+	// If a transform function was defined, run it on the css
+	if (options.transform && obj.css) {
+	    result = options.transform(obj.css);
+
+	    if (result) {
+	    	// If transform returns a value, use that instead of the original css.
+	    	// This allows running runtime transformations on the css.
+	    	obj.css = result;
+	    } else {
+	    	// If the transform function returns a falsy value, don't add this css.
+	    	// This allows conditional loading of css
+	    	return function() {
+	    		// noop
+	    	};
+	    }
+	}
+
+	if (options.singleton) {
+		var styleIndex = singletonCounter++;
+
+		style = singleton || (singleton = createStyleElement(options));
+
+		update = applyToSingletonTag.bind(null, style, styleIndex, false);
+		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+
+	} else if (
+		obj.sourceMap &&
+		typeof URL === "function" &&
+		typeof URL.createObjectURL === "function" &&
+		typeof URL.revokeObjectURL === "function" &&
+		typeof Blob === "function" &&
+		typeof btoa === "function"
+	) {
+		style = createLinkElement(options);
+		update = updateLink.bind(null, style, options);
+		remove = function () {
+			removeStyleElement(style);
+
+			if(style.href) URL.revokeObjectURL(style.href);
+		};
+	} else {
+		style = createStyleElement(options);
+		update = applyToTag.bind(null, style);
+		remove = function () {
+			removeStyleElement(style);
+		};
+	}
+
+	update(obj);
+
+	return function updateStyle (newObj) {
+		if (newObj) {
+			if (
+				newObj.css === obj.css &&
+				newObj.media === obj.media &&
+				newObj.sourceMap === obj.sourceMap
+			) {
+				return;
+			}
+
+			update(obj = newObj);
+		} else {
+			remove();
+		}
+	};
+}
+
+var replaceText = (function () {
+	var textStore = [];
+
+	return function (index, replacement) {
+		textStore[index] = replacement;
+
+		return textStore.filter(Boolean).join('\n');
+	};
+})();
+
+function applyToSingletonTag (style, index, remove, obj) {
+	var css = remove ? "" : obj.css;
+
+	if (style.styleSheet) {
+		style.styleSheet.cssText = replaceText(index, css);
+	} else {
+		var cssNode = document.createTextNode(css);
+		var childNodes = style.childNodes;
+
+		if (childNodes[index]) style.removeChild(childNodes[index]);
+
+		if (childNodes.length) {
+			style.insertBefore(cssNode, childNodes[index]);
+		} else {
+			style.appendChild(cssNode);
+		}
+	}
+}
+
+function applyToTag (style, obj) {
+	var css = obj.css;
+	var media = obj.media;
+
+	if(media) {
+		style.setAttribute("media", media)
+	}
+
+	if(style.styleSheet) {
+		style.styleSheet.cssText = css;
+	} else {
+		while(style.firstChild) {
+			style.removeChild(style.firstChild);
+		}
+
+		style.appendChild(document.createTextNode(css));
+	}
+}
+
+function updateLink (link, options, obj) {
+	var css = obj.css;
+	var sourceMap = obj.sourceMap;
+
+	/*
+		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
+		and there is no publicPath defined then lets turn convertToAbsoluteUrls
+		on by default.  Otherwise default to the convertToAbsoluteUrls option
+		directly
+	*/
+	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
+
+	if (options.convertToAbsoluteUrls || autoFixUrls) {
+		css = fixUrls(css);
+	}
+
+	if (sourceMap) {
+		// http://stackoverflow.com/a/26603875
+		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+	}
+
+	var blob = new Blob([css], { type: "text/css" });
+
+	var oldSrc = link.href;
+
+	link.href = URL.createObjectURL(blob);
+
+	if(oldSrc) URL.revokeObjectURL(oldSrc);
+}
+
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports) {
+
+
+/**
+ * When source maps are enabled, `style-loader` uses a link element with a data-uri to
+ * embed the css on the page. This breaks all relative urls because now they are relative to a
+ * bundle instead of the current page.
+ *
+ * One solution is to only use full urls, but that may be impossible.
+ *
+ * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
+ *
+ * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
+ *
+ */
+
+module.exports = function (css) {
+  // get current location
+  var location = typeof window !== "undefined" && window.location;
+
+  if (!location) {
+    throw new Error("fixUrls requires window.location");
+  }
+
+	// blank or null?
+	if (!css || typeof css !== "string") {
+	  return css;
+  }
+
+  var baseUrl = location.protocol + "//" + location.host;
+  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
+
+	// convert each url(...)
+	/*
+	This regular expression is just a way to recursively match brackets within
+	a string.
+
+	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
+	   (  = Start a capturing group
+	     (?:  = Start a non-capturing group
+	         [^)(]  = Match anything that isn't a parentheses
+	         |  = OR
+	         \(  = Match a start parentheses
+	             (?:  = Start another non-capturing groups
+	                 [^)(]+  = Match anything that isn't a parentheses
+	                 |  = OR
+	                 \(  = Match a start parentheses
+	                     [^)(]*  = Match anything that isn't a parentheses
+	                 \)  = Match a end parentheses
+	             )  = End Group
+              *\) = Match anything and then a close parens
+          )  = Close non-capturing group
+          *  = Match anything
+       )  = Close capturing group
+	 \)  = Match a close parens
+
+	 /gi  = Get all matches, not the first.  Be case insensitive.
+	 */
+	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
+		// strip quotes (if they exist)
+		var unquotedOrigUrl = origUrl
+			.trim()
+			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
+			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
+
+		// already a full url? no change
+		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
+		  return fullMatch;
+		}
+
+		// convert the url to a full url
+		var newUrl;
+
+		if (unquotedOrigUrl.indexOf("//") === 0) {
+		  	//TODO: should we add protocol?
+			newUrl = unquotedOrigUrl;
+		} else if (unquotedOrigUrl.indexOf("/") === 0) {
+			// path should be relative to the base url
+			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
+		} else {
+			// path should be relative to current directory
+			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
+		}
+
+		// send back the fixed url(...)
+		return "url(" + JSON.stringify(newUrl) + ")";
+	});
+
+	// send back the fixed css
+	return fixedCss;
+};
+
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(109)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(102)
+/* template */
+var __vue_template__ = __webpack_require__(111)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-6f5ffebe"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/views/pages/EmailVerifier.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6f5ffebe", Component.options)
+  } else {
+    hotAPI.reload("data-v-6f5ffebe", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 101 */,
+/* 102 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var axios = __webpack_require__(2);
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            res: {},
+            loading: false
+        };
+    },
+
+    methods: {
+        verify: function verify(token) {
+            var _this = this;
+
+            axios.put('user/verify/' + token).then(function (res) {
+                _this.res = res.data;
+                _this.loading = false;
+            }).catch(function (res) {
+                _this.res = { status: '404' };
+                _this.loading = false;
+            });
+        }
+    },
+    beforeMount: function beforeMount() {
+        if (this.$route.query.token) {
+            this.loading = true;
+            this.verify(this.$route.query.token);
+        }
+    }
+});
+
+/***/ }),
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/* NProgress, (c) 2013, 2014 Rico Sta. Cruz - http://ricostacruz.com/nprogress
+ * @license MIT */
+
+;(function(root, factory) {
+
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if (typeof exports === 'object') {
+    module.exports = factory();
+  } else {
+    root.NProgress = factory();
+  }
+
+})(this, function() {
+  var NProgress = {};
+
+  NProgress.version = '0.2.0';
+
+  var Settings = NProgress.settings = {
+    minimum: 0.08,
+    easing: 'ease',
+    positionUsing: '',
+    speed: 200,
+    trickle: true,
+    trickleRate: 0.02,
+    trickleSpeed: 800,
+    showSpinner: true,
+    barSelector: '[role="bar"]',
+    spinnerSelector: '[role="spinner"]',
+    parent: 'body',
+    template: '<div class="bar" role="bar"><div class="peg"></div></div><div class="spinner" role="spinner"><div class="spinner-icon"></div></div>'
+  };
+
+  /**
+   * Updates configuration.
+   *
+   *     NProgress.configure({
+   *       minimum: 0.1
+   *     });
+   */
+  NProgress.configure = function(options) {
+    var key, value;
+    for (key in options) {
+      value = options[key];
+      if (value !== undefined && options.hasOwnProperty(key)) Settings[key] = value;
+    }
+
+    return this;
+  };
+
+  /**
+   * Last number.
+   */
+
+  NProgress.status = null;
+
+  /**
+   * Sets the progress bar status, where `n` is a number from `0.0` to `1.0`.
+   *
+   *     NProgress.set(0.4);
+   *     NProgress.set(1.0);
+   */
+
+  NProgress.set = function(n) {
+    var started = NProgress.isStarted();
+
+    n = clamp(n, Settings.minimum, 1);
+    NProgress.status = (n === 1 ? null : n);
+
+    var progress = NProgress.render(!started),
+        bar      = progress.querySelector(Settings.barSelector),
+        speed    = Settings.speed,
+        ease     = Settings.easing;
+
+    progress.offsetWidth; /* Repaint */
+
+    queue(function(next) {
+      // Set positionUsing if it hasn't already been set
+      if (Settings.positionUsing === '') Settings.positionUsing = NProgress.getPositioningCSS();
+
+      // Add transition
+      css(bar, barPositionCSS(n, speed, ease));
+
+      if (n === 1) {
+        // Fade out
+        css(progress, { 
+          transition: 'none', 
+          opacity: 1 
+        });
+        progress.offsetWidth; /* Repaint */
+
+        setTimeout(function() {
+          css(progress, { 
+            transition: 'all ' + speed + 'ms linear', 
+            opacity: 0 
+          });
+          setTimeout(function() {
+            NProgress.remove();
+            next();
+          }, speed);
+        }, speed);
+      } else {
+        setTimeout(next, speed);
+      }
+    });
+
+    return this;
+  };
+
+  NProgress.isStarted = function() {
+    return typeof NProgress.status === 'number';
+  };
+
+  /**
+   * Shows the progress bar.
+   * This is the same as setting the status to 0%, except that it doesn't go backwards.
+   *
+   *     NProgress.start();
+   *
+   */
+  NProgress.start = function() {
+    if (!NProgress.status) NProgress.set(0);
+
+    var work = function() {
+      setTimeout(function() {
+        if (!NProgress.status) return;
+        NProgress.trickle();
+        work();
+      }, Settings.trickleSpeed);
+    };
+
+    if (Settings.trickle) work();
+
+    return this;
+  };
+
+  /**
+   * Hides the progress bar.
+   * This is the *sort of* the same as setting the status to 100%, with the
+   * difference being `done()` makes some placebo effect of some realistic motion.
+   *
+   *     NProgress.done();
+   *
+   * If `true` is passed, it will show the progress bar even if its hidden.
+   *
+   *     NProgress.done(true);
+   */
+
+<<<<<<< Updated upstream
+/***/ }),
+/* 70 */
+/***/ (function(module, exports) {
+=======
+  NProgress.done = function(force) {
+    if (!force && !NProgress.status) return this;
+>>>>>>> Stashed changes
+
+    return NProgress.inc(0.3 + 0.5 * Math.random()).set(1);
+  };
+
+  /**
+   * Increments by a random amount.
+   */
+
+  NProgress.inc = function(amount) {
+    var n = NProgress.status;
+
+    if (!n) {
+      return NProgress.start();
+    } else {
+      if (typeof amount !== 'number') {
+        amount = (1 - n) * clamp(Math.random() * n, 0.1, 0.95);
+      }
+
+      n = clamp(n + amount, 0, 0.994);
+      return NProgress.set(n);
+    }
+  };
+
+  NProgress.trickle = function() {
+    return NProgress.inc(Math.random() * Settings.trickleRate);
+  };
+
+  /**
+   * Waits for all supplied jQuery promises and
+   * increases the progress as the promises resolve.
+   *
+   * @param $promise jQUery Promise
+   */
+  (function() {
+    var initial = 0, current = 0;
+
+    NProgress.promise = function($promise) {
+      if (!$promise || $promise.state() === "resolved") {
+        return this;
+      }
+
+      if (current === 0) {
+        NProgress.start();
+      }
+
+      initial++;
+      current++;
+
+      $promise.always(function() {
+        current--;
+        if (current === 0) {
+            initial = 0;
+            NProgress.done();
+        } else {
+            NProgress.set((initial - current) / initial);
+        }
+      });
+
+      return this;
+    };
+
+  })();
+
+  /**
+   * (Internal) renders the progress bar markup based on the `template`
+   * setting.
+   */
+
+  NProgress.render = function(fromStart) {
+    if (NProgress.isRendered()) return document.getElementById('nprogress');
+
+    addClass(document.documentElement, 'nprogress-busy');
+    
+    var progress = document.createElement('div');
+    progress.id = 'nprogress';
+    progress.innerHTML = Settings.template;
+
+    var bar      = progress.querySelector(Settings.barSelector),
+        perc     = fromStart ? '-100' : toBarPerc(NProgress.status || 0),
+        parent   = document.querySelector(Settings.parent),
+        spinner;
+    
+    css(bar, {
+      transition: 'all 0 linear',
+      transform: 'translate3d(' + perc + '%,0,0)'
+    });
+
+    if (!Settings.showSpinner) {
+      spinner = progress.querySelector(Settings.spinnerSelector);
+      spinner && removeElement(spinner);
+    }
+
+    if (parent != document.body) {
+      addClass(parent, 'nprogress-custom-parent');
+    }
+
+    parent.appendChild(progress);
+    return progress;
+  };
+
+<<<<<<< Updated upstream
+/***/ }),
+/* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __cookie = __webpack_require__(14);
+=======
+  /**
+   * Removes the element. Opposite of render().
+   */
+
+  NProgress.remove = function() {
+    removeClass(document.documentElement, 'nprogress-busy');
+    removeClass(document.querySelector(Settings.parent), 'nprogress-custom-parent');
+    var progress = document.getElementById('nprogress');
+    progress && removeElement(progress);
+  };
+>>>>>>> Stashed changes
+
+  /**
+   * Checks if the progress bar is rendered.
+   */
+
+  NProgress.isRendered = function() {
+    return !!document.getElementById('nprogress');
+  };
+
+  /**
+   * Determine which positioning CSS rule to use.
+   */
+
+  NProgress.getPositioningCSS = function() {
+    // Sniff on document.body.style
+    var bodyStyle = document.body.style;
+
+    // Sniff prefixes
+    var vendorPrefix = ('WebkitTransform' in bodyStyle) ? 'Webkit' :
+                       ('MozTransform' in bodyStyle) ? 'Moz' :
+                       ('msTransform' in bodyStyle) ? 'ms' :
+                       ('OTransform' in bodyStyle) ? 'O' : '';
+
+    if (vendorPrefix + 'Perspective' in bodyStyle) {
+      // Modern browsers with 3D support, e.g. Webkit, IE10
+      return 'translate3d';
+    } else if (vendorPrefix + 'Transform' in bodyStyle) {
+      // Browsers without 3D support, e.g. IE9
+      return 'translate';
+    } else {
+      // Browsers without translate() support, e.g. IE7-8
+      return 'margin';
+    }
+  };
+
+  /**
+   * Helpers
+   */
+
+  function clamp(n, min, max) {
+    if (n < min) return min;
+    if (n > max) return max;
+    return n;
+  }
+
+  /**
+   * (Internal) converts a percentage (`0..1`) to a bar translateX
+   * percentage (`-100%..0%`).
+   */
+
+  function toBarPerc(n) {
+    return (-1 + n) * 100;
+  }
+
+
+  /**
+   * (Internal) returns the correct CSS for changing the bar's
+   * position given an n percentage, and speed and ease from Settings
+   */
+
+  function barPositionCSS(n, speed, ease) {
+    var barCSS;
+
+    if (Settings.positionUsing === 'translate3d') {
+      barCSS = { transform: 'translate3d('+toBarPerc(n)+'%,0,0)' };
+    } else if (Settings.positionUsing === 'translate') {
+      barCSS = { transform: 'translate('+toBarPerc(n)+'%,0)' };
+    } else {
+      barCSS = { 'margin-left': toBarPerc(n)+'%' };
+    }
+
+    barCSS.transition = 'all '+speed+'ms '+ease;
+
+    return barCSS;
+  }
+
+  /**
+   * (Internal) Queues a function to be executed.
+   */
+
+  var queue = (function() {
+    var pending = [];
+    
+    function next() {
+      var fn = pending.shift();
+      if (fn) {
+        fn(next);
+      }
+    }
+
+    return function(fn) {
+      pending.push(fn);
+      if (pending.length == 1) next();
+    };
+  })();
+
+<<<<<<< Updated upstream
+/***/ }),
+/* 72 */
+/***/ (function(module, exports) {
+=======
+  /**
+   * (Internal) Applies css properties to an element, similar to the jQuery 
+   * css method.
+   *
+   * While this helper does assist with vendor prefixed property names, it 
+   * does not perform any manipulation of values prior to setting styles.
+   */
+>>>>>>> Stashed changes
+
+  var css = (function() {
+    var cssPrefixes = [ 'Webkit', 'O', 'Moz', 'ms' ],
+        cssProps    = {};
+
+    function camelCase(string) {
+      return string.replace(/^-ms-/, 'ms-').replace(/-([\da-z])/gi, function(match, letter) {
+        return letter.toUpperCase();
+      });
+    }
+
+<<<<<<< Updated upstream
+/***/ }),
+/* 73 */
+/***/ (function(module, exports) {
+=======
+    function getVendorProp(name) {
+      var style = document.body.style;
+      if (name in style) return name;
+>>>>>>> Stashed changes
+
+      var i = cssPrefixes.length,
+          capName = name.charAt(0).toUpperCase() + name.slice(1),
+          vendorName;
+      while (i--) {
+        vendorName = cssPrefixes[i] + capName;
+        if (vendorName in style) return vendorName;
+      }
+
+      return name;
+    }
+
+    function getStyleProp(name) {
+      name = camelCase(name);
+      return cssProps[name] || (cssProps[name] = getVendorProp(name));
+    }
+
+    function applyCss(element, prop, value) {
+      prop = getStyleProp(prop);
+      element.style[prop] = value;
+    }
+
+    return function(element, properties) {
+      var args = arguments,
+          prop, 
+          value;
+
+      if (args.length == 2) {
+        for (prop in properties) {
+          value = properties[prop];
+          if (value !== undefined && properties.hasOwnProperty(prop)) applyCss(element, prop, value);
+        }
+      } else {
+        applyCss(element, args[1], args[2]);
+      }
+    }
+  })();
+
+  /**
+   * (Internal) Determines if an element or space separated list of class names contains a class name.
+   */
+
+  function hasClass(element, name) {
+    var list = typeof element == 'string' ? element : classList(element);
+    return list.indexOf(' ' + name + ' ') >= 0;
+  }
+
+  /**
+   * (Internal) Adds a class to an element.
+   */
+
+  function addClass(element, name) {
+    var oldList = classList(element),
+        newList = oldList + name;
+
+    if (hasClass(oldList, name)) return; 
+
+    // Trim the opening space.
+    element.className = newList.substring(1);
+  }
+
+  /**
+   * (Internal) Removes a class from an element.
+   */
+
+  function removeClass(element, name) {
+    var oldList = classList(element),
+        newList;
+
+    if (!hasClass(element, name)) return;
+
+    // Replace the class name.
+    newList = oldList.replace(' ' + name + ' ', ' ');
+
+    // Trim the opening and closing spaces.
+    element.className = newList.substring(1, newList.length - 1);
+  }
+
+  /**
+   * (Internal) Gets a space separated list of the class names on the element. 
+   * The list is wrapped with a single space on each end to facilitate finding 
+   * matches within the list.
+   */
+
+  function classList(element) {
+    return (' ' + (element.className || '') + ' ').replace(/\s+/gi, ' ');
+  }
+
+  /**
+   * (Internal) Removes an element from the DOM.
+   */
+
+  function removeElement(element) {
+    element && element.parentNode && element.parentNode.removeChild(element);
+  }
+
+  return NProgress;
+});
+
+
+
+/***/ }),
+<<<<<<< Updated upstream
+/* 74 */
+/***/ (function(module, exports) {
+=======
+/* 104 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Stashed changes
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(105);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(98)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../css-loader/index.js!./nprogress.css", function() {
+			var newContent = require("!!../css-loader/index.js!./nprogress.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 105 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "/* Make clicks pass-through */\n#nprogress {\n  pointer-events: none;\n}\n\n#nprogress .bar {\n  background: #29d;\n\n  position: fixed;\n  z-index: 1031;\n  top: 0;\n  left: 0;\n\n  width: 100%;\n  height: 2px;\n}\n\n/* Fancy blur effect */\n#nprogress .peg {\n  display: block;\n  position: absolute;\n  right: 0px;\n  width: 100px;\n  height: 100%;\n  box-shadow: 0 0 10px #29d, 0 0 5px #29d;\n  opacity: 1.0;\n\n  -webkit-transform: rotate(3deg) translate(0px, -4px);\n      -ms-transform: rotate(3deg) translate(0px, -4px);\n          transform: rotate(3deg) translate(0px, -4px);\n}\n\n/* Remove these to get rid of the spinner */\n#nprogress .spinner {\n  display: block;\n  position: fixed;\n  z-index: 1031;\n  top: 15px;\n  right: 15px;\n}\n\n#nprogress .spinner-icon {\n  width: 18px;\n  height: 18px;\n  box-sizing: border-box;\n\n  border: solid 2px transparent;\n  border-top-color: #29d;\n  border-left-color: #29d;\n  border-radius: 50%;\n\n  -webkit-animation: nprogress-spinner 400ms linear infinite;\n          animation: nprogress-spinner 400ms linear infinite;\n}\n\n.nprogress-custom-parent {\n  overflow: hidden;\n  position: relative;\n}\n\n.nprogress-custom-parent #nprogress .spinner,\n.nprogress-custom-parent #nprogress .bar {\n  position: absolute;\n}\n\n@-webkit-keyframes nprogress-spinner {\n  0%   { -webkit-transform: rotate(0deg); }\n  100% { -webkit-transform: rotate(360deg); }\n}\n@keyframes nprogress-spinner {\n  0%   { transform: rotate(0deg); }\n  100% { transform: rotate(360deg); }\n}\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 106 */,
+/* 107 */,
+/* 108 */,
+/* 109 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(110);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(5)("76a7eace", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6f5ffebe\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EmailVerifier.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6f5ffebe\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EmailVerifier.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 110 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.full-height[data-v-6f5ffebe]{\r\n    margin-bottom: 60px;\n}\n.loader[data-v-6f5ffebe] {\r\n    border: 16px solid #f3f3f3; /* Light grey */\r\n    border-top: 16px solid #3498db; /* Blue */\r\n    border-radius: 50%;\r\n    width: 120px;\r\n    height: 120px;\r\n    -webkit-animation: spin-data-v-6f5ffebe 2s linear infinite;\r\n            animation: spin-data-v-6f5ffebe 2s linear infinite;\r\n    margin: auto auto;\r\n    margin-top: 50px;\n}\n@-webkit-keyframes spin-data-v-6f5ffebe {\n0% { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\n100% { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\n@keyframes spin-data-v-6f5ffebe {\n0% { -webkit-transform: rotate(0deg); transform: rotate(0deg);\n}\n100% { -webkit-transform: rotate(360deg); transform: rotate(360deg);\n}\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+<<<<<<< Updated upstream
+/* 75 */
+/***/ (function(module, exports) {
+=======
+/* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> Stashed changes
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "full-height row p-x-10 pad-t-60px" }, [
+    _c(
+      "div",
+      {
+        staticClass: "container border-radius-5px mar-t-20px pad-b-40px",
+        staticStyle: { "background-color": "#0000003b" }
+      },
+      [
+        _vm.loading
+          ? _c("div", { staticClass: "loader" })
+          : !_vm.res.status
+          ? _c("div", [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", {
+                staticClass: "border-radius-5px mar-t-20px",
+                staticStyle: { "background-color": "#0000002b" }
+              }),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c("form", { attrs: { action: "verify.php", method: "get" } }, [
+                _c("p", { staticClass: "color-lightTheme" }, [
+                  _vm._v("Token Anda: " + _vm._s(_vm.$route.query.token))
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  attrs: { type: "text", placeholder: "Token", name: "token" }
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "full-width",
+                  attrs: {
+                    type: "submit",
+                    value: "Verifikasi",
+                    name: "verifikasi"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("hr")
+            ])
+          : _vm.res.status == "202"
+          ? _c("div", [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("div", {
+                staticClass: "border-radius-5px mar-t-20px",
+                staticStyle: { "background-color": "#0000002b" }
+              }),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c("h3", { staticClass: "color-lightTheme" }, [
+                _vm._v("Selamat : " + _vm._s(_vm.res.email) + " !!")
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "color-lightTheme" }, [
+                _vm._v(
+                  "Anda telah berhasil melakukan aktivasi email, Anda baru bisa login jika Anda telah diterima oleh admin."
+                )
+              ]),
+              _vm._v(" "),
+              _vm._m(2),
+              _vm._v(" "),
+              _c("hr")
+            ])
+          : _vm.res.status == "404"
+          ? _c("div", [
+              _vm._m(3),
+              _vm._v(" "),
+              _c("div", {
+                staticClass: "border-radius-5px mar-t-20px",
+                staticStyle: { "background-color": "#0000002b" }
+              }),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c("h3", { staticClass: "color-lightTheme" }, [
+                _vm._v("WRONG TOKEN!!")
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "color-lightTheme" }, [
+                _vm._v("Token Anda tidak valid atau kadaluarsa.")
+              ]),
+              _vm._v(" "),
+              _vm._m(4),
+              _vm._v(" "),
+              _c("hr")
+            ])
+          : _vm._e()
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "border-radius-5px mar-t-20px p-2",
+        staticStyle: { "background-color": "#00000078" }
+      },
+      [
+        _c(
+          "p",
+          {
+            staticClass: "color-lightTheme",
+            staticStyle: { "text-align": "center", margin: "auto auto" }
+          },
+          [_vm._v("Masukkan Token Anda")]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "border-radius-5px mar-t-20px p-2",
+        staticStyle: { "background-color": "#26b72b78" }
+      },
+      [
+        _c(
+          "p",
+          {
+            staticClass: "color-lightTheme",
+            staticStyle: { "text-align": "center", margin: "auto auto" }
+          },
+          [
+            _vm._v(
+              "Anda telah berhasil mendaftar mohon lakukan aktivasi email atau Anda tidak dapat login."
+            )
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "color-lightTheme" }, [
+      _vm._v("Klik "),
+      _c("a", { attrs: { href: "/member" } }, [_vm._v("Disini")]),
+      _vm._v(" untuk kembali ke halaman login.")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "border-radius-5px mar-t-20px p-2",
+        staticStyle: { "background-color": "#ff000078" }
+      },
+      [
+        _c(
+          "p",
+          {
+            staticClass: "color-lightTheme",
+            staticStyle: { "text-align": "center", margin: "auto auto" }
+          },
+          [_vm._v("ERROR--WRONG TOKEN!")]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "color-lightTheme" }, [
+      _vm._v("Klik "),
+      _c("a", { attrs: { href: "daftar.php" } }, [_vm._v("Disini")]),
+      _vm._v(" untuk kembali ke halaman daftar.")
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-6f5ffebe", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

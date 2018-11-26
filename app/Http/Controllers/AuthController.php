@@ -9,6 +9,12 @@ use Carbon\Carbon;
 use JWTAuth;
 use Auth;
 use App\Http\Resources\newMember as NewMemberResource;
+<<<<<<< Updated upstream
+=======
+use App\Token;
+use App\Mail\EmailVerification;
+use Illuminate\Support\Facades\Mail;
+>>>>>>> Stashed changes
 class AuthController extends Controller
 {
     //
@@ -24,10 +30,29 @@ class AuthController extends Controller
         $u->npm  = $req->npm;
         $u->phone  = $req->phone;
         $u->save();
+<<<<<<< Updated upstream
+=======
+        $t = new Token;
+        
+        do {
+            $token = str_random(32);
+        } while (Token::find($token) instanceof User);
+        $t->token = $token;
+        $this->sendEmailVerification($token, $req->email, $req->name);
+        $t->user_id=$u->id;
+        $t->save();
+>>>>>>> Stashed changes
         return response([
             'status' => 'success',
             'data' => $u
         ], 200);
+    }
+    private function sendEmailVerification($token, $email, $name){
+        $objDemo = new \stdClass();
+        $objDemo->sender = 'Jo Vianto';
+        $objDemo->receiver = $name;
+        $objDemo->token = $token;
+        Mail::to($email)->send(new EmailVerification($objDemo));
     }
     public function login(Request $request){
         $credentials = $request->only('email', 'password');

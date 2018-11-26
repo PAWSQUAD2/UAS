@@ -1,4 +1,5 @@
 <template>
+
     <div class="container-fluid no-v-pad" >
         <div class="row top ">
             <div id="myCarousel" class="carousel slide" data-ride="carousel" style="background-color: grey">
@@ -57,7 +58,25 @@
                 </div>					
             </div>
         </div>
-
+        <div class="body" style="max-height:1000px; background-color: rgb(64, 67, 68); overflow: auto;">
+            <!-- Page content 2-->
+            <div class=" col-xl-12" >
+                <!-- Project Section -->
+                <div class="al-panel al-padding-32" id="projects">
+                <h3 class="al-padding-bootom al-border-light-grey al-padding-16 color-lightTheme">Trending</h3>
+                </div>
+                <div class="al-row-padding">
+                    <div v-for="(data, index) in news" v-bind:key="data.id" class="al-col al al-m al-margin-bottom" data-aos-duration="1000" v-bind:data-aos="index%2==0?'flip-right':'flip-left'">
+                        <div class="al-display-container">
+                            <div class="al-display-topleft al-black al-padding">{{ data.kategori }}</div>
+                            <img v-bind:src="data.photoUrl" alt="'.$data['kategori'].'" style="width:100%; max-width:300px; max-height:200px;" >
+                            <a class="al-title color-lightTheme bold" href="berita.php?id='.$data['id'].'">{{ data.judul }}</a>
+                            <p class="al-caption color-lightTheme" max-lines="5">{{ data.isi }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="body" style="max-height: 1200px;  background-color: white;overflow: hidden;">
             <div class="row ald-padding-64 pad-b-40px" >
                 <div class="ald-col m6 ald-padding-large" data-aos="fade-right">
@@ -116,7 +135,24 @@
 </template>
 
 <script>
+import Axios from 'axios';
 export default {
+<<<<<<< Updated upstream
     
+=======
+    data(){
+        return{
+            news : [],
+        }
+    },
+    beforeMount(){
+        Axios.get('news')
+        .then(res=>{
+            this.news = res.data;
+        }).catch(res=>{
+
+        })
+    }
+>>>>>>> Stashed changes
 }
 </script>

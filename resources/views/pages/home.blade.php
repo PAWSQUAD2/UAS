@@ -1,4 +1,5 @@
 @extends('layouts.default')
+<<<<<<< Updated upstream
 @section('content')
 	<div id="app">
         <p>
@@ -8,3 +9,5 @@
 		<router-view></router-view>
     </div>
 @stop
+=======
+>>>>>>> Stashed changes

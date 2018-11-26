@@ -6,11 +6,11 @@
 <body>
     
 
-    <div id="app">
+    <div id="app" >
         <header>
             @include('includes.header')
         </header>
-        @yield('content')
+        <router-view style="min-height: calc( 100vh - 370px ) "></router-view>
         @include('includes.footer')
     </div>
     
