@@ -14,5 +14,5 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="{{ asset('css/footer.css') }}">
 <link type="text/css" rel="stylesheet" href="{{ asset('css/404.css') }}" />
-<link type="text/css" rel="stylesheet" href="{{ asset('css/animate.css') }}"/>
+<link type="text/css" rel="stylesheet" href="{{ asset('css/animate.css') }}"/>>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">

@@ -19,8 +19,8 @@ class Settings extends Migration
             $table->integer('timeout_sec');
             $table->string('phone');
             $table->string('email');
-            $table->string('facebook')->nullable();
-            $table->string('instagram')->nullable();
+            $table->string('facebook');
+            $table->string('instagram');
             $table->boolean('oprec');
             $table->text('visi');
             $table->text('misi');
@@ -39,6 +39,6 @@ class Settings extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('settings');
+        Schema::drop('settings');
     }
 }

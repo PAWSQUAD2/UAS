@@ -28,7 +28,7 @@ class AddProdyToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            Schema::dropIfExists('users');
+            $table->string('prody');
         });
     }
 }

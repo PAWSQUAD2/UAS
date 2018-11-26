@@ -17,13 +17,13 @@ class AddFieldToUsers extends Migration
             //
             $table->string('role')->default('anggota baru');
             $table->string('npm');
-            $table->dateTime('birthDay')->nullable();
-            $table->string('bornPlace')->nullable();
-            $table->string('instagram')->nullable();
-            $table->string('twitter')->nullable();
-            $table->string('facebook')->nullable();
+            $table->dateTime('birthDay');
+            $table->string('bornPlace');
+            $table->string('instagram');
+            $table->string('twitter');
+            $table->string('facebook');
             $table->string('phone');
-            $table->string('photoUrl')->nullable();
+            $table->string('photoUrl');
         });
     }
 
@@ -36,7 +36,15 @@ class AddFieldToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            Schema::dropIfExists('users');
+            $table->string('role')->default('anggota baru');
+            $table->string('npm');
+            $table->dateTime('birthDay');
+            $table->string('bornPlace');
+            $table->string('instagram');
+            $table->string('twitter');
+            $table->string('facebook');
+            $table->string('phone');
+            $table->string('photoUrl');
         });
     }
 }

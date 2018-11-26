@@ -15,9 +15,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $newss = News::all();
-
-        return response()->json($newss,200);
+        return News::all();
     }
 
     /**
@@ -38,6 +36,7 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< HEAD
         $news = new News;
         $news->judul = $request->judul;
         $news->isi = $request->isi;
@@ -49,6 +48,9 @@ class NewsController extends Controller
             return response()->json('Error Saving',500);
         }else
         return response()->json('success',201);
+=======
+        return News::create($request->all());
+>>>>>>> parent of 422042b... Member
     }
 
     /**
@@ -59,13 +61,7 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        $news = News::find($id);
-
-        if(is_null($news)){
-            return response()->json('Not Found',404);
-        }
-        else
-            return response()->json($news,200);
+        return News::find($id);
     }
 
     /**
@@ -88,6 +84,7 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
+<<<<<<< HEAD
         $news = News::find($id);
 
         if(!is_null($request->judul)){
@@ -109,6 +106,12 @@ class NewsController extends Controller
         }
         else    
             return response()->json('Success',200);
+=======
+        $news = News::findOrFail($id);
+        $news->update($request->all());
+
+        return $news;
+>>>>>>> parent of 422042b... Member
     }
 
     /**
@@ -119,17 +122,6 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        $news = News::find($id);
-        
-        if(is_null($news)){
-            return response()->json('Not Found',404);
-        }
-        $success = $news->delete();
-
-        if(!$success){
-            return response()->json('Error Deleting',500);
-        }
-        else
-            return response()->json('Success',200);
+        //
     }
 }

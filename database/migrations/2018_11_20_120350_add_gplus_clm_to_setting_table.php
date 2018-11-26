@@ -28,7 +28,6 @@ class AddGplusClmToSettingTable extends Migration
     {
         Schema::table('settings', function (Blueprint $table) {
             //
-            Schema::dropIfExists('settings');
         });
     }
 }

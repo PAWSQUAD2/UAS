@@ -6,17 +6,17 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
     use Notifiable;
-    protected $table = 'users';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'id','name', 'email', 'password', 'prody', 'role', 'npm', 'birthDay', 'bornPlace', 'instagram', 'twitter','facebook', 'phone', 'photoUrl'
+        'name', 'email', 'password', 'prody', 'role', 'npm', 'birthDay', 'bornPlace', 'instagram', 'twitter','facebook', 'phone', 'photoUrl'
     ];
 
     /**
@@ -27,9 +27,4 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    public function deleteMe(){
-        $this->delete();
-    }
-    
 }

@@ -9,7 +9,6 @@ use Carbon\Carbon;
 use JWTAuth;
 use Auth;
 use App\Http\Resources\newMember as NewMemberResource;
-use App\Token;
 class AuthController extends Controller
 {
     //
@@ -25,8 +24,6 @@ class AuthController extends Controller
         $u->npm  = $req->npm;
         $u->phone  = $req->phone;
         $u->save();
-        $t = new Token;
-        $t->save();
         return response([
             'status' => 'success',
             'data' => $u
@@ -59,7 +56,6 @@ class AuthController extends Controller
     }
 
     public function refresh(){
-        
         return response([
                 'status' => 'success'
             ]);
