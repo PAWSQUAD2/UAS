@@ -26,7 +26,8 @@ Route::put('user/verify/{token}','EmailVerificationController@index');
 Route::put('Member/{id}', 'UserController@update');
 Route::post('/auth/register', 'AuthController@register');
 Route::post('auth/login', 'AuthController@login');
-
+Route::post('/image/store','FileUploadController@store');
+Route::delete('/image/{url}','FileUploadController@destroy');
 
 Route::group(['middleware' => 'jwt.auth'], function(){
   Route::put('user/accept/{id}', 'UserController@accept');

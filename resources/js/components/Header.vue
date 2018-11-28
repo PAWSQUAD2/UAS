@@ -26,7 +26,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown1" > 
                         <router-link :to="{ name: 'profile' }"  class="dropdown-item color-darkTheme fa fa-user"> Beranda</router-link>
-                        <a class="dropdown-item color-darkTheme fa fa-wrench" href="profile_edit.php">  Edit Profile</a>
+                        <router-link :to="{ name: 'profile', query:{edit:true} }"  class="dropdown-item color-darkTheme fa fa-wrench" > Edit Profile</router-link> 
                         <a class="dropdown-item color-darkTheme fa fa-play-circle" href="profile_edit.php">  IoT Demo</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item color-darkTheme fa fa-newspaper" href="tambah-berita.php">  Olah Berita</a>

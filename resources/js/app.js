@@ -35,6 +35,7 @@ import MemberView from '../views/pages/MemberView.vue'
 import NewMemberView from '../views/pages/NewMemberView.vue'
 import Profile from '../views/pages/Profile.vue'
 import EmailVerifier from '../views/pages/EmailVerifier.vue'
+import BeritaControl from '../views/pages/BeritaControl.vue'
 const router = new VueRouter({
     mode: 'history',
     base: window.location.pathName,
@@ -45,6 +46,15 @@ const router = new VueRouter({
         meta: {
             auth: undefined
 
+        }
+    },{
+        path: '/controlBerita',
+        name : 'controlBerita',
+        component: BeritaControl,
+        meta:{
+            auth: true,
+            forbiddenRedirect: '/',
+            notFoundRedirect: '/',
         }
     },
     {

@@ -16,10 +16,8 @@
                             <hr>
                             <iframe name="hidden-frame" width="0" height="0" border="0" style="display: none;"></iframe>
                             <tabel-member></tabel-member>
-                            <comments-box :id="id"></comments-box>
-                            <button @click="id++">tambaj</button>
                         </div>
-                    </div>
+                    </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                      -->
                 </div>
             </div>
         </div>
@@ -32,7 +30,6 @@ import axios from 'axios';
 export default{
     data(){
         return{
-            id : 1,
         }
     }
 }

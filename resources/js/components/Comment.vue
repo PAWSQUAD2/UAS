@@ -90,6 +90,13 @@ export default {
         if(this.comment.user.id == this.$auth.user().id){
             this.editable = true;
         }
+        
+    },
+    created(){
+        if(this.comment.isNew){
+            this.status = "updated";
+            this.updated = true;
+        }
     }
 }
 </script>

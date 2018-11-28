@@ -69,7 +69,7 @@
                     <div v-for="(data, index) in news" v-bind:key="data.id" class="al-col al al-m al-margin-bottom" data-aos-duration="1000" v-bind:data-aos="index%2==0?'flip-right':'flip-left'">
                         <div class="al-display-container">
                             <div class="al-display-topleft al-black al-padding">{{ data.kategori }}</div>
-                            <img v-bind:src="data.photoUrl" alt="'.$data['kategori'].'" style="width:100%; max-width:300px; max-height:200px;" >
+                            <img v-bind:src="data.photoUrl" alt="photoUrl" style="width:100%; max-width:300px; max-height:200px;" >
                             <a class="al-title color-lightTheme bold" href="berita.php?id='.$data['id'].'">{{ data.judul }}</a>
                             <p class="al-caption color-lightTheme" max-lines="5" v-html="data.isi">{{ data.isi }}</p>
                         </div>

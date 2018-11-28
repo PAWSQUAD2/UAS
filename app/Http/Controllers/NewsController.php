@@ -15,7 +15,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return News::all();
+        return News::orderBy('created_at', 'DESC')->get();
     }
 
     /**
@@ -46,8 +46,7 @@ class NewsController extends Controller
         if(!$success){
             return response()->json('Error Saving',500);
         }else
-        return response()->json('success',201);
-        return News::create($request->all());
+        return response()->json($news,201);
     }
 
     /**

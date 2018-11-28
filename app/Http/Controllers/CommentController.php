@@ -40,12 +40,19 @@ class CommentController extends Controller
         $comment->id_user = $request->id_user;
         $comment->id_berita = $request->id_berita;
         $comment->isi = $request->isi;
+        $user = \App\User::find($comment->id_user);
+        
         $success = $comment->save();
-
+        $comment->user = [
+            'id' => $user->id,
+            'name' => $user->name,
+            'photoUrl' => $user->photoUrl
+        ];
+        
         if(!$success){
             return response()->json('Error Saving',500);
         }else
-        return response()->json('success',201);
+        return response()->json($comment, 201);
     }
 
     /**
@@ -56,7 +63,7 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        $comment = Comment::where('id_berita','=',$id)->get()->each(function ($item, $key) {
+        $comment = Comment::where('id_berita','=',$id)->orderBy('created_at','DESC')->get()->each(function ($item, $key) {
             $user = \App\User::find($item->id_user);
             $item->user = [
                 'id' => $user->id,
