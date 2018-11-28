@@ -7,17 +7,15 @@
                 </div>
                 <div class="row">
                     <div class="col-xl-12 no-padding">
-                        <div class="profile-header-container p-x-5 pad-t-60px editor-container">
+                        <div class="profile-header-container p-x-5 pad-t-60px pad-b-60px editor-container">
                             <div class="emblem">
                                 <div class="logo"><img src="images/emblen.jpg"/></div>
                                 <h3 class="caption color-darkTheme">Kelompok Studi Robotik</h3>
                             </div>
-                            <h3 class="color-darkTheme">>> Anggota KSR</h3>
+                            <h3 class="color-darkTheme">>> Calon-Calon Anggota KSR</h3>
                             <hr>
                             <iframe name="hidden-frame" width="0" height="0" border="0" style="display: none;"></iframe>
-                            <tabel-member></tabel-member>
-                            <comments-box :id="id"></comments-box>
-                            <button @click="id++">tambaj</button>
+                            <tabel-member-baru></tabel-member-baru>
                         </div>
                     </div>
                 </div>
@@ -27,17 +25,10 @@
 </template>
 <script>
 
-import axios from 'axios';
-
-export default{
-    data(){
-        return{
-            id : 1,
-        }
-    }
-}
 
 </script>
 <style scoped>
-
+.pad-b-60px{
+    padding-bottom: 60px;
+}
 </style>

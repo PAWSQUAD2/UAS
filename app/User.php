@@ -27,8 +27,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-<<<<<<< Updated upstream
-=======
 
     public function deleteMe(){
         $this->delete();
@@ -36,5 +34,4 @@ class User extends Authenticatable
 
     
     
->>>>>>> Stashed changes
 }

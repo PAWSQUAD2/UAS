@@ -102,7 +102,7 @@
 					<div class="row  " v-if="error_login">
 						<div class="col-xl-12 " >
 							<br>
-							<p class="align-center alert alert-danger" id="fail-login">Gagal Masuk! Email/Password Anda Salah.</p>
+							<p class="align-center alert alert-danger" id="fail-login">{{ login_res.msg }}</p>
 						</div>
 					</div>
 					<div class="row">
@@ -134,6 +134,7 @@ export default {
 			error_login:false,
 			email_login:'',
 			pass_login:'',
+			login_res:{},
 		};
 	},
     methods:{
@@ -232,12 +233,12 @@ export default {
 					email: app.email_login,
 					password: app.pass_login
 				}, 
-				success: function () {
+				success: function (res) {
 
 				},
 				error: function (e) {
-					console.log(e.response.data);
 					app.error_login = true;
+					this.login_res =  e.response.data;
 				},
 				rememberMe: true,
 				redirect: '/',

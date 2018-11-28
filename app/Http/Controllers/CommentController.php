@@ -11,7 +11,7 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($news_id)
     {
         $comments = Comment::all();
 
@@ -56,7 +56,14 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        $comment = Comment::find($id);
+        $comment = Comment::where('id_berita','=',$id)->get()->each(function ($item, $key) {
+            $user = \App\User::find($item->id_user);
+            $item->user = [
+                'id' => $user->id,
+                'name' => $user->name,
+                'photoUrl' => $user->photoUrl
+            ];
+        });
 
         if(is_null($comment)){
             return response()->json('Not Found',404);

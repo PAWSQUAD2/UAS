@@ -1,19 +1,14 @@
 <template>
     <nav class="navbar mNav fixed-top navbar-expand-lg navbar-light bg-light"> 
-<<<<<<< Updated upstream
-        <a class="logo"><img src="images/emblen.jpg"/></a>
-        <a class="navbar-brand" href="index.php">KSR</a>
-=======
         <a class="logo"><img src="/images/emblen.jpg"/></a>
         <router-link :to="{ name: 'home' }"  class="navbar-brand">KSR</router-link>
->>>>>>> Stashed changes
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"><em>&nbsp;</em></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent1">
             <ul class="navbar-nav mr-auto">
             <li class="nav-item active"> <router-link :to="{ name: 'home' }"  class="nav-link no-outline fa fa-home">Home</router-link></li>
             <li class="nav-item"> <router-link :to="!$auth.check()?{ name: 'member' }:{ name: 'member_view'}" class="nav-link no-outline fa fa-users">Member</router-link> </li>
             <li class="nav-item"> <router-link :to="{ name: 'berita' }" class="nav-link no-outline fa fa-newspaper">Berita</router-link>  </li>
-            <li class="nav-item"> <a class="nav-link no-outline color-darkOrange fa fa-user-plus" href="pendaftar.php"> Open Registration</a> </li>
+            <li class="nav-item"> <router-link :to="{ name: 'new_member_view' }"  class="nav-link no-outline color-darkOrange fa fa-user-plus">Pendaftaran</router-link> </li>
             </ul>
             <div class="pull-right">
                 <!-- <ul class="navbar-nav mr-auto">
@@ -30,7 +25,7 @@
                         </div> 
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown1" > 
-                        <a class="dropdown-item color-darkTheme fa fa-user" href="profile.php">  Beranda</a>
+                        <router-link :to="{ name: 'profile' }"  class="dropdown-item color-darkTheme fa fa-user"> Beranda</router-link>
                         <a class="dropdown-item color-darkTheme fa fa-wrench" href="profile_edit.php">  Edit Profile</a>
                         <a class="dropdown-item color-darkTheme fa fa-play-circle" href="profile_edit.php">  IoT Demo</a>
                         <div class="dropdown-divider"></div>

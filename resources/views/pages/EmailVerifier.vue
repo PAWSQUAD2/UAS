@@ -9,11 +9,9 @@
                 </div>
                 <div class="border-radius-5px mar-t-20px" style="background-color: #0000002b;"></div>
                 <hr>
-                <form action="verify.php" method="get">
                 <p class="color-lightTheme">Token Anda: {{ $route.query.token }}</p>
-                <input type="text" placeholder="Token" name="token">
-                <input class="full-width" type="submit" value="Verifikasi" name="verifikasi">
-                </form>
+                <input type="text" placeholder="Token" v-model="token">
+                <input class="full-width" type="submit" @click="verify(token)" value="Verifikasi" name="verifikasi">
                 <hr>
             </div>
             <div v-else-if="res.status=='202'">
@@ -49,6 +47,7 @@ export default {
         return {
             res:{},
             loading:false,
+            token : "",
         }
     },
     methods:{

@@ -36,7 +36,6 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
         $news = new News;
         $news->judul = $request->judul;
         $news->isi = $request->isi;
@@ -48,9 +47,7 @@ class NewsController extends Controller
             return response()->json('Error Saving',500);
         }else
         return response()->json('success',201);
-=======
         return News::create($request->all());
->>>>>>> parent of 422042b... Member
     }
 
     /**
@@ -84,7 +81,6 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-<<<<<<< HEAD
         $news = News::find($id);
 
         if(!is_null($request->judul)){
@@ -106,12 +102,10 @@ class NewsController extends Controller
         }
         else    
             return response()->json('Success',200);
-=======
         $news = News::findOrFail($id);
         $news->update($request->all());
 
         return $news;
->>>>>>> parent of 422042b... Member
     }
 
     /**

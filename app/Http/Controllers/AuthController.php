@@ -9,12 +9,9 @@ use Carbon\Carbon;
 use JWTAuth;
 use Auth;
 use App\Http\Resources\newMember as NewMemberResource;
-<<<<<<< Updated upstream
-=======
 use App\Token;
 use App\Mail\EmailVerification;
 use Illuminate\Support\Facades\Mail;
->>>>>>> Stashed changes
 class AuthController extends Controller
 {
     //
@@ -30,8 +27,6 @@ class AuthController extends Controller
         $u->npm  = $req->npm;
         $u->phone  = $req->phone;
         $u->save();
-<<<<<<< Updated upstream
-=======
         $t = new Token;
         
         do {
@@ -41,7 +36,6 @@ class AuthController extends Controller
         $this->sendEmailVerification($token, $req->email, $req->name);
         $t->user_id=$u->id;
         $t->save();
->>>>>>> Stashed changes
         return response([
             'status' => 'success',
             'data' => $u
@@ -55,16 +49,31 @@ class AuthController extends Controller
         Mail::to($email)->send(new EmailVerification($objDemo));
     }
     public function login(Request $request){
+        
         $credentials = $request->only('email', 'password');
 
         if ( ! $token = JWTAuth::attempt($credentials)) {
                 return response([
                     'status' => 'error',
                     'error' => 'invalid.credentials',
-                    'msg' => 'Invalid Credentials.'
+                    'msg' => 'Username Atau Password Anda Salah!'
                 ], 400);
         }
-
+        $user = User::where('email', $request->email)->get()->first();
+        if($user instanceof User && is_null($user->email_verified_at) ){
+            return response([
+                'status' => 'error',
+                'error' => 'forbidden',
+                'msg' => 'Anda harus verifikasi email terlebih dahulu! '
+            ], 405);
+        }
+        if($user instanceof User && $user->role == 'anggota baru'){
+            return response([
+                'status' => 'error',
+                'error' => 'forbidden',
+                'msg' => 'Anda harus menunggu Admin Menerima Anda Terlebih Dahulu Agar Dapat Login! '
+            ], 405);
+        }
         return response([
                 'status' => 'success'
         ], 200)

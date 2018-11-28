@@ -71,7 +71,7 @@
                             <div class="al-display-topleft al-black al-padding">{{ data.kategori }}</div>
                             <img v-bind:src="data.photoUrl" alt="'.$data['kategori'].'" style="width:100%; max-width:300px; max-height:200px;" >
                             <a class="al-title color-lightTheme bold" href="berita.php?id='.$data['id'].'">{{ data.judul }}</a>
-                            <p class="al-caption color-lightTheme" max-lines="5">{{ data.isi }}</p>
+                            <p class="al-caption color-lightTheme" max-lines="5" v-html="data.isi">{{ data.isi }}</p>
                         </div>
                     </div>
                 </div>
@@ -137,9 +137,7 @@
 <script>
 import Axios from 'axios';
 export default {
-<<<<<<< Updated upstream
     
-=======
     data(){
         return{
             news : [],
@@ -153,6 +151,5 @@ export default {
 
         })
     }
->>>>>>> Stashed changes
 }
 </script>
